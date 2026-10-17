@@ -1,0 +1,89 @@
+{
+  "supplier": "AirArabia",
+  "currency": "AED",
+  "passengers": [
+    {
+      "passengerId": "PAX1",
+      "type": "ADULT",
+      "label": "Ahmed Al Sayed"
+    },
+    {
+      "passengerId": "PAX2",
+      "type": "CHILD",
+      "label": "Layla Al Sayed"
+    }
+  ],
+  "segments": [
+    {
+      "segmentId": "SEG1",
+      "origin": "DXB",
+      "destination": "LHR",
+      "departureDateTime": "2026-08-14T09:15:00",
+      "arrivalDateTime": "2026-08-14T13:40:00",
+      "departureTerminal": "1",
+      "arrivalTerminal": "5",
+      "flightTime": 445,
+      "operatingCarrierCode": "G9",
+      "operatingFlightNumber": "780",
+      "marketingCarrierCode": "G9",
+      "marketingFlightNumber": "780",
+      "equipment": "789",
+      "cabinLayout": {
+        "decks": [
+          {
+            "deck": "MAIN",
+            "zones": [
+              {
+                "zoneId": "upper-first",
+                "cabinClass": "FIRST",
+                "rowCount": 2,
+                "columnCount": 6,
+                "columns": [
+                  {
+                    "colId": 1,
+                    "label": "A",
+                    "zoneType": "SEAT"
+                  },
+                  {
+                    "colId": 2,
+                    "label": "B",
+                    "zoneType": "SEAT"
+                  },
+                  {
+                    "colId": 3,
+                    "label": "AISLE_3/LAVATORY_3",
+                    "zoneType": "AISLE/LAVATORY"
+                  }
+                ],
+                "rows": [
+                  {
+                    "rowNumber": 1,
+                    "cells": [
+                      {
+                        "cellCategory": "SEAT",
+                        "cellId": "SEG1-1A",
+                        "cellCode": "1A",
+                        "column": "A",
+                        "cellAvailability": "AVAILABLE_PAID",
+                        "cellCharacteristics": ["WINDOW", "LIE_FLAT"],
+                        "signature": "string",
+                        "seatPriceDetailsByPassenger": {
+                          "PAX1": 25.0,
+                          "PAX2": 30.0
+                        },
+                        "passengerEligibility": {
+                          "PAX1": true,
+                          "PAX2": false
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

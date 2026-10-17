@@ -1,0 +1,693 @@
+{
+  "responseId": null,
+  "supplier": "OmanAirV17",
+  "journeys": {
+    "F1": {
+      "origin": "CAI",
+      "destination": "JED",
+      "numberOfStops": 1,
+      "segmentRefIds": ["S2", "S3"],
+      "segmentTypeMap": {}
+    }
+  },
+  "flightSegments": {
+    "S2": {
+      "origin": "CAI",
+      "destination": "MCT",
+      "departureDateTime": "2026-11-30T18:05:00",
+      "arrivalDateTime": "2026-11-30T23:45:00",
+      "departureTerminal": "2",
+      "arrivalTerminal": null,
+      "flightTime": 220,
+      "operatingCarrierCode": "WY",
+      "operatingFlightNumber": "406",
+      "marketingCarrierCode": "WY",
+      "marketingFlightNumber": "406",
+      "equipment": "73J"
+    },
+    "S3": {
+      "origin": "MCT",
+      "destination": "JED",
+      "departureDateTime": "2026-12-01T10:40:00",
+      "arrivalDateTime": "2026-12-01T13:15:00",
+      "departureTerminal": null,
+      "arrivalTerminal": "1",
+      "flightTime": 215,
+      "operatingCarrierCode": "WY",
+      "operatingFlightNumber": "689",
+      "marketingCarrierCode": "WY",
+      "marketingFlightNumber": "689",
+      "equipment": "73J"
+    }
+  },
+  "priceClasses": {
+    "WYEconomySuperSaver-1": {
+      "priceClassName": "Economy Super Saver",
+      "fareDescription": "PublicFare",
+      "rulesAndPenalties": [
+        "Cancellation: Non-Refundable",
+        "Change: Fees Apply",
+        "No-Show: Non-Refundable",
+        "Miles earning: Allowed",
+        "Miles Upgrade: Not Allowed",
+        "Easy Pass: Fees Apply",
+        "Security Fast Track: Fees Apply",
+        "Lounge: Fees Apply",
+        "Cabin Bag: 1 x 7kg",
+        "Checked Bag: 20KG",
+        "Seat Selection: Fees Apply"
+      ]
+    }
+  },
+  "baggageDetails": {
+    "F1_S2_T": {
+      "carryOnBaggage": "Category: CarryOn | Description: CARRY ON ALLOWANCE | Pieces: 1 Piece(s)  ",
+      "checkInBaggage": "Category: Checked | Description: CHECKED ALLOWANCE | Pieces:  20 KG"
+    },
+    "F1_S3_T": {
+      "carryOnBaggage": "Category: CarryOn | Description: CARRY ON ALLOWANCE | Pieces: 1 Piece(s)  ",
+      "checkInBaggage": "Category: Checked | Description: CHECKED ALLOWANCE | Pieces:  20 KG"
+    }
+  },
+  "selectedOffer": {
+    "offerId": "WY910WY2941A3",
+    "offerJourneys": ["F1"],
+    "passengerFareBreakdown": [
+      {
+        "paxTotalAmount": {
+          "amount": 14354.8,
+          "currency": "EGP"
+        },
+        "passengerTypeCode": "ADT",
+        "paxTotalTaxAmount": {
+          "amount": 5166.8,
+          "currency": "EGP"
+        },
+        "paxBaseAmount": {
+          "amount": 8340.0,
+          "currency": "EGP"
+        },
+        "taxesAndFees": [
+          {
+            "code": "EG",
+            "amount": {
+              "amount": 150.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "XK",
+            "amount": {
+              "amount": 150.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "XL",
+            "amount": {
+              "amount": 10.8,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "YQ",
+            "amount": {
+              "amount": 2477.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "QH",
+            "amount": {
+              "amount": 1312.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "JK",
+            "amount": {
+              "amount": 100.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "EQ",
+            "amount": {
+              "amount": 105.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "OM",
+            "amount": {
+              "amount": 137.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "E3",
+            "amount": {
+              "amount": 112.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "O9",
+            "amount": {
+              "amount": 53.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "Q7",
+            "amount": {
+              "amount": 2.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "I2",
+            "amount": {
+              "amount": 137.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "O2",
+            "amount": {
+              "amount": 15.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "S6",
+            "amount": {
+              "amount": 301.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "S4",
+            "amount": {
+              "amount": 105.0,
+              "currency": "EGP"
+            }
+          }
+        ],
+        "segmentDetails": [
+          {
+            "segmentRefId": "S2",
+            "segmentType": null,
+            "priceClassRefId": "WYEconomySuperSaver-1",
+            "priceClassType": null,
+            "baggageDetailsRefId": "F1_S2_T",
+            "baggageDetailsType": null,
+            "cabinCode": "ECONOMY",
+            "rbd": "E"
+          },
+          {
+            "segmentRefId": "S3",
+            "segmentType": null,
+            "priceClassRefId": "WYEconomySuperSaver-1",
+            "priceClassType": null,
+            "baggageDetailsRefId": "F1_S3_T",
+            "baggageDetailsType": null,
+            "cabinCode": "ECONOMY",
+            "rbd": "E"
+          }
+        ],
+        "discount": null
+      }
+    ],
+    "priceDetails": {
+      "totalAmount": {
+        "amount": 14354.8,
+        "currency": "EGP"
+      },
+      "totalTaxAmount": {
+        "amount": 5166.8,
+        "currency": "EGP"
+      },
+      "totalBaseAmount": {
+        "amount": 8340.0,
+        "currency": "EGP"
+      },
+      "taxesAndFees": [
+        {
+          "code": "EG",
+          "amount": {
+            "amount": 150.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "XK",
+          "amount": {
+            "amount": 150.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "XL",
+          "amount": {
+            "amount": 10.8,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "YQ",
+          "amount": {
+            "amount": 2477.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "QH",
+          "amount": {
+            "amount": 1312.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "JK",
+          "amount": {
+            "amount": 100.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "EQ",
+          "amount": {
+            "amount": 105.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "OM",
+          "amount": {
+            "amount": 137.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "E3",
+          "amount": {
+            "amount": 112.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "O9",
+          "amount": {
+            "amount": 53.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "Q7",
+          "amount": {
+            "amount": 2.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "I2",
+          "amount": {
+            "amount": 137.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "O2",
+          "amount": {
+            "amount": 15.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "S6",
+          "amount": {
+            "amount": 301.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "S4",
+          "amount": {
+            "amount": 105.0,
+            "currency": "EGP"
+          }
+        }
+      ],
+      "discount": null,
+      "totalAncillariesAmount": {
+        "amount": 0.0,
+        "currency": "EGP"
+      },
+      "totalSelectedBundlesAmount": null,
+      "totalSelectedSeatsAmount": {
+        "amount": 848.0,
+        "currency": "EGP"
+      },
+      "totalPassengersAncillaries": [],
+      "totalSelectedSeats": [
+        {
+          "cellCode": "12A",
+          "price": {
+            "amount": 848.0,
+            "currency": "EGP"
+          }
+        }
+      ],
+      "totalSelectedBundles": null
+    },
+    "haveBundles": false,
+    "canBeHeld": false,
+    "appliedDealCode": null,
+    "appliedPromotionCode": "",
+    "offerHasAncillary": false,
+    "offerHasSeat": false,
+    "ancillaryRequired": false,
+    "seatMapRequired": false,
+    "dealCodeApplied": false,
+    "promoted": false,
+    "baggageRequired": false,
+    "mealRequired": false,
+    "offerJourneysMap": {},
+    "Refundability": "NotRefundable"
+  },
+  "passengersSelectedSeats": {
+    "T1": {
+      "setSegmentsSeats": null
+    }
+  },
+  "offers": [
+    {
+      "offerId": "WY910WY2941A3",
+      "offerJourneys": ["F1"],
+      "passengerFareBreakdown": [
+        {
+          "paxTotalAmount": {
+            "amount": 14354.8,
+            "currency": "EGP"
+          },
+          "passengerTypeCode": "ADT",
+          "paxTotalTaxAmount": {
+            "amount": 5166.8,
+            "currency": "EGP"
+          },
+          "paxBaseAmount": {
+            "amount": 8340.0,
+            "currency": "EGP"
+          },
+          "taxesAndFees": [
+            {
+              "code": "EG",
+              "amount": {
+                "amount": 150.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "XK",
+              "amount": {
+                "amount": 150.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "XL",
+              "amount": {
+                "amount": 10.8,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "YQ",
+              "amount": {
+                "amount": 2477.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "QH",
+              "amount": {
+                "amount": 1312.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "JK",
+              "amount": {
+                "amount": 100.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "EQ",
+              "amount": {
+                "amount": 105.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "OM",
+              "amount": {
+                "amount": 137.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "E3",
+              "amount": {
+                "amount": 112.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "O9",
+              "amount": {
+                "amount": 53.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "Q7",
+              "amount": {
+                "amount": 2.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "I2",
+              "amount": {
+                "amount": 137.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "O2",
+              "amount": {
+                "amount": 15.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "S6",
+              "amount": {
+                "amount": 301.0,
+                "currency": "EGP"
+              }
+            },
+            {
+              "code": "S4",
+              "amount": {
+                "amount": 105.0,
+                "currency": "EGP"
+              }
+            }
+          ],
+          "segmentDetails": [
+            {
+              "segmentRefId": "S2",
+              "segmentType": null,
+              "priceClassRefId": "WYEconomySuperSaver-1",
+              "priceClassType": null,
+              "baggageDetailsRefId": "F1_S2_T",
+              "baggageDetailsType": null,
+              "cabinCode": "ECONOMY",
+              "rbd": "E"
+            },
+            {
+              "segmentRefId": "S3",
+              "segmentType": null,
+              "priceClassRefId": "WYEconomySuperSaver-1",
+              "priceClassType": null,
+              "baggageDetailsRefId": "F1_S3_T",
+              "baggageDetailsType": null,
+              "cabinCode": "ECONOMY",
+              "rbd": "E"
+            }
+          ],
+          "discount": null
+        }
+      ],
+      "priceDetails": {
+        "totalAmount": {
+          "amount": 14354.8,
+          "currency": "EGP"
+        },
+        "totalTaxAmount": {
+          "amount": 5166.8,
+          "currency": "EGP"
+        },
+        "totalBaseAmount": {
+          "amount": 8340.0,
+          "currency": "EGP"
+        },
+        "taxesAndFees": [
+          {
+            "code": "EG",
+            "amount": {
+              "amount": 150.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "XK",
+            "amount": {
+              "amount": 150.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "XL",
+            "amount": {
+              "amount": 10.8,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "YQ",
+            "amount": {
+              "amount": 2477.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "QH",
+            "amount": {
+              "amount": 1312.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "JK",
+            "amount": {
+              "amount": 100.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "EQ",
+            "amount": {
+              "amount": 105.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "OM",
+            "amount": {
+              "amount": 137.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "E3",
+            "amount": {
+              "amount": 112.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "O9",
+            "amount": {
+              "amount": 53.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "Q7",
+            "amount": {
+              "amount": 2.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "I2",
+            "amount": {
+              "amount": 137.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "O2",
+            "amount": {
+              "amount": 15.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "S6",
+            "amount": {
+              "amount": 301.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "S4",
+            "amount": {
+              "amount": 105.0,
+              "currency": "EGP"
+            }
+          }
+        ],
+        "discount": null,
+        "totalAncillariesAmount": {
+          "amount": 0.0,
+          "currency": "EGP"
+        },
+        "totalSelectedBundlesAmount": null,
+        "totalSelectedSeatsAmount": {
+          "amount": 848.0,
+          "currency": "EGP"
+        },
+        "totalPassengersAncillaries": [],
+        "totalSelectedSeats": [
+          {
+            "cellCode": "12A",
+            "price": {
+              "amount": 848.0,
+              "currency": "EGP"
+            }
+          }
+        ],
+        "totalSelectedBundles": null
+      },
+      "haveBundles": false,
+      "canBeHeld": false,
+      "appliedDealCode": null,
+      "appliedPromotionCode": "",
+      "offerHasAncillary": false,
+      "offerHasSeat": false,
+      "ancillaryRequired": false,
+      "seatMapRequired": false,
+      "dealCodeApplied": false,
+      "promoted": false,
+      "baggageRequired": false,
+      "mealRequired": false,
+      "offerJourneysMap": {},
+      "Refundability": "NotRefundable"
+    }
+  ]
+}

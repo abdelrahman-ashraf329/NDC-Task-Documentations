@@ -1,0 +1,495 @@
+{
+    "supplier": "RiyadhAir",
+    "pnr": "1LPK5A",
+    "gdsPNR": "RX12239Q4CCQJ",
+    "bookingToken": "RX12239Q4CCQJ&yAR6Y9IAABBL8gSUkZnW/zrt/ICiQkShMZHcABDAEADwHcCiQkSiQkTW/2wsI4ABkaRBQkRPrjMwMTQ1MTUwMTM2NzQz1v9einEAokJELABRpFNhYWQFAESiTVKaRQAhAZI5AOSoTXVoYW1tYWSiVDHAwCYAAA0A/y+iQkSjQURUrVJYMTIyMzlRNENDUUqRnKExkadQcmltYXJ5wsKRksC2YWhtZWRtYW5zb3VyQGdtYWlsLmNvbWgAE/IpwMDAkZXAqFBlcnNvbmFsoysyMMCrMDEwMDI5NzI2MzORmcClQ2Fpcm/AokVHwMDAwJKlTWFhZGkGALrAgaJUMZSjQURUk8wAAccA/02C2SRhYzIwNjNjMi02ZTRlLTQ1Y2MtODdjMy1lMmRkOTdlMWVjM2LcAB/ZLExGTUwjNjBlYjdhZWI0NGEwNDc1M2E5YzkyNDAwYTBiNGMxNTRfT0ZJMDAx2SxWRy4AFn8z2SxXQ0xCXAAUXzXZLEFWXAAWbzbZLFdRT1wAFRA5igAvSFKKABNfMjHZLEcUARZvMjbZLExDuAAVbzI32SxWTy4AFW8zMNksRlAuABZ/MtksQkxOROYAE48zNNksREVBRi4AFF812SxWSooAFl822SxWTC4AFk832SxOLgAXEDjmAA9cABZ/OdksRENSV+YAE480MtksRFBOQS4AFH8z2SxQT1hZLgAUfzTZLExPVU4uABRfNdksRELmABUQNbgAL0dBuAAUIDU1DgMfQhQBFCA1Ny4AL01QuAATbzU52SxDSLgAFRE2IgQfQrICFG82NdksTFNcABYQOLgAL0hTuAATbzY52SxSVlwAFW83MNksSE4uABYCigAfQ4oAE/8cODLZJDNiOThlODcyLTY5N2UtNDk2My1iNGViLTY4MjZjMjUwNzg0YtwAHuEAGS8wMukFGh80NwMZLzA4CQMZLzExZQMZETEjAg+7BRUhMTQUAQ9rARQQMQkDD0UGFhAxcwYPCQMWETE3Aw/bAhUvMTjvAxkgMjLmAA9ZBxUvMjMdBBkQMqcEH0PbAhUvMjg3AxkvMzHPBhkvNDARCBkvNDFzBhkvNDbjBxkgNDdzBh9OpwQULzUwzwYZEDW4AA9ZBxYvNTNfBRkvNTanBBkvNTibCBkvNjALChkvNjFtCBkQNqwED+kFFhE3IgQPzwYVIDc1zAEP4AIV/yM3NoHZJGQzNTJjMTA3LTEzNzktNDIwMi1hYmU1LTJlMzY5NmEzYzAxZtwAFNksQzBDMeUFE48wN9kscXVxdS4AE48xMNksRlRSSy4AFH8y2SxPU0JHLgAUALEHPzBDOC4AEyEyMOYAHzkuABQRNS4AD2kIFBEyigAvSTdcABN/MzPZLE1FRPMIFCE0OIoAH1VcABMRNIoAH0OKABQgNjSKAA9wARV/NjbZLEFCQ0wEFCE2N7gAHzW4ABMhNzEuAB8yLgAUHzKKABl/NzTZLDAwMBQBFI83N9ksUFJJRYoAFAJwAR80LgATbzgx2SxXQ3ABElBGSTA4Mw==",
+    "voidCapability": "FullVoidOnlyAllowed",
+    "creationDate": "2026-09-17T13:12:59.5170936Z",
+    "ticketingDate": "2026-09-17T13:13:01",
+    "tickets": {
+        "T1": {
+            "ticketStatus": "Booked",
+            "ticketNumber": "1222160135367",
+            "carrierCode": "RX"
+        }
+    },
+    "passengersSelectedAncillaries": {
+        "T1": {
+            "segmentsSelectedAncillaries": {},
+            "journyesSelectedAncillaries": {
+                "d352c107-1379-4202-abe5-2e3696a3c01f": [
+                    {
+                        "price": {
+                            "amount": 151.00,
+                            "currency": "SAR"
+                        },
+                        "description": "Checked Bag 15kg",
+                        "additionalServiceCategory": "Baggage",
+                        "ancillaryCode": "C0C1",
+                        "quantity": "1"
+                    }
+                ]
+            }
+        }
+    },
+    "passengersSelectedSeats": {},
+    "journeys": {
+        "d352c107-1379-4202-abe5-2e3696a3c01f": {
+            "origin": "CAI",
+            "destination": "JED",
+            "numberOfStops": 1,
+            "segmentRefIds": [
+                "DMS3b98e872-697e-4963-b4eb-6826c250784b",
+                "DMSac2063c2-6e4e-45cc-87c3-e2dd97e1ec3b"
+            ]
+        }
+    },
+    "flightSegments": {
+        "DMS3b98e872-697e-4963-b4eb-6826c250784b": {
+            "origin": "CAI",
+            "destination": "RUH",
+            "departureDateTime": "2026-10-15T20:30:00",
+            "arrivalDateTime": "2026-10-15T23:05:00",
+            "departureTerminal": "1",
+            "arrivalTerminal": "4",
+            "flightTime": 155,
+            "operatingCarrierCode": "RX",
+            "operatingFlightNumber": "9331",
+            "marketingCarrierCode": "RX",
+            "marketingFlightNumber": "9331",
+            "equipment": "789"
+        },
+        "DMSac2063c2-6e4e-45cc-87c3-e2dd97e1ec3b": {
+            "origin": "RUH",
+            "destination": "JED",
+            "departureDateTime": "2026-10-16T07:00:00",
+            "arrivalDateTime": "2026-10-16T08:50:00",
+            "departureTerminal": "5",
+            "arrivalTerminal": "1",
+            "flightTime": 110,
+            "operatingCarrierCode": "RX",
+            "operatingFlightNumber": "9003",
+            "marketingCarrierCode": "RX",
+            "marketingFlightNumber": "9003",
+            "equipment": "789"
+        }
+    },
+    "priceClasses": {
+        "PC1": {
+            "priceClassName": "Lite",
+            "fareDescription": "PublicFare",
+            "rulesAndPenalties": [
+                "C090 - Personal item - All cabins(r)",
+                "C0C4 - Check-in baggage allowance of 25kg(r)",
+                "C0M3 - Carry-on Bag - 7kg",
+                "C0C1 - Check-in baggage allowance of 15kg(r)",
+                "After booking policy: Cancellation is allowed with a 100% refund at no fee. Valid after booking until 24 hours after booking.",
+                "Cancellation is allowed with a 100% refund at a fee of 265 SAR. Valid 24 hours after booking until moment of departure.",
+                "No show policy: Cancellation is allowed with a 0% refund at no fee. Valid 6 hours before departure .",
+                "After departure policy: Cancellation is allowed with a 0% refund at no fee. ",
+                "Cancellation is allowed with a 0% refund at no fee. Valid after booking until moment of departure.",
+                "No show policy: Cancellation is allowed with a 0% refund at no fee. Valid 2 hours before departure .",
+                "Rebooking allowed with a 0% refund at a fee of 150 SAR allowing for date, flight number, origin, destination and cabin changes. Valid after booking until 3 hours before departure.",
+                "Rebooking allowed with a 0% refund at no fee allowing for cabin changes. Date, flight number, origin and destination changes are not allowed. Valid 3 hours before departure until 1 hour before departure.",
+                "Rebooking is not allowed. Valid 1 hour before departure until moment of departure.",
+                "After departure policy: Rebooking is not allowed. ",
+                "Name change is allowed 1 time(s) with in total max 20 characters at a fee of 120 SAR. Valid after booking until 1 hour before departure.",
+                "Name change is not allowed. Valid 1 hour before departure until moment of departure."
+            ]
+        }
+    },
+    "baggageDetails": {
+        "d352c107-1379-4202-abe5-2e3696a3c01f_3b98e872-697e-4963-b4eb-6826c250784b": {
+            "carryOnBaggage": "Type: CARRY_ON | Weight: 5 KGM + Type: CARRY_ON | Weight: 7 KGM",
+            "checkInBaggage": "Type: CHECKED | Weight: 25 KGM + Type: CHECKED | Weight: 15 KGM"
+        },
+        "d352c107-1379-4202-abe5-2e3696a3c01f_ac2063c2-6e4e-45cc-87c3-e2dd97e1ec3b": {
+            "carryOnBaggage": "Type: CARRY_ON | Weight: 5 KGM + Type: CARRY_ON | Weight: 7 KGM",
+            "checkInBaggage": "Type: CHECKED | Weight: 25 KGM + Type: CHECKED | Weight: 15 KGM"
+        }
+    },
+    "passengersList": {
+        "T1": {
+            "title": "MR",
+            "name": {
+                "first": "ABDO",
+                "middle": "Muhammad",
+                "last": "Saad"
+            },
+            "birthDate": "2001-05-01T00:00:00",
+            "gender": "Male",
+            "passengerTypeCode": "ADT",
+            "contactRefId": "1",
+            "travelDocument": {
+                "name": {
+                    "first": "ABDO",
+                    "middle": "Muhammad",
+                    "last": "Saad"
+                },
+                "nationality": "BD",
+                "expirationDate": "2027-07-06T00:00:00Z",
+                "issuanceDate": "2020-04-06T00:00:00Z",
+                "documentNumber": "30145150136743",
+                "documentType": "Passport",
+                "gender": "Male",
+                "birthCountry": "BD",
+                "birthDate": "2001-05-01T00:00:00Z",
+                "issuanceCountryCode": "BD"
+            },
+            "parentPaxRefId": null,
+            "nationality": "BD",
+            "residentCountry": "BD",
+            "age": 25
+        }
+    },
+    "contacts": {
+        "1": {
+            "email": "ahmedmansour@gmail.com",
+            "phone": {
+                "type": "Personal",
+                "countryDialingCode": "+20",
+                "phoneNumber": "01002972633"
+            },
+            "address": {
+                "line1": "Maadi",
+                "line2": "Maadi",
+                "city": "Cairo",
+                "countryCode": "EG"
+            }
+        }
+    },
+    "selectedOffer": {
+        "offerId": "RX12239Q4CCQJ",
+        "offerJourneys": [
+            "d352c107-1379-4202-abe5-2e3696a3c01f"
+        ],
+        "passengerFareBreakdown": [
+            {
+                "passengerRefId": "T1",
+                "paxTotalAmount": {
+                    "amount": 733.50,
+                    "currency": "SAR"
+                },
+                "passengerAncillaries": [
+                    {
+                        "ancillaryCode": "C0C1",
+                        "amount": {
+                            "amount": 151.00,
+                            "currency": "SAR"
+                        }
+                    }
+                ],
+                "passengerTypeCode": "ADT",
+                "paxTotalTaxAmount": {
+                    "amount": 281.50,
+                    "currency": "SAR"
+                },
+                "paxBaseAmount": {
+                    "amount": 301.00,
+                    "currency": "SAR"
+                },
+                "taxesAndFees": [
+                    {
+                        "code": "XK",
+                        "amount": {
+                            "amount": 11.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "T2",
+                        "amount": {
+                            "amount": 5.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "S4",
+                        "amount": {
+                            "amount": 8.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "QH",
+                        "amount": {
+                            "amount": 94.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "O2",
+                        "amount": {
+                            "amount": 1.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "JK",
+                        "amount": {
+                            "amount": 8.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "O9",
+                        "amount": {
+                            "amount": 4.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "IO",
+                        "amount": {
+                            "amount": 12.50,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "EQ",
+                        "amount": {
+                            "amount": 8.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "EG",
+                        "amount": {
+                            "amount": 11.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "E3",
+                        "amount": {
+                            "amount": 8.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "code": "YQ",
+                        "amount": {
+                            "amount": 111.00,
+                            "currency": "SAR"
+                        }
+                    }
+                ],
+                "segmentDetails": [
+                    {
+                        "segmentRefId": "DMS3b98e872-697e-4963-b4eb-6826c250784b",
+                        "priceClassRefId": "PC1",
+                        "baggageDetailsRefId": "d352c107-1379-4202-abe5-2e3696a3c01f_3b98e872-697e-4963-b4eb-6826c250784b",
+                        "cabinCode": "Economy",
+                        "rbd": null
+                    },
+                    {
+                        "segmentRefId": "DMSac2063c2-6e4e-45cc-87c3-e2dd97e1ec3b",
+                        "priceClassRefId": "PC1",
+                        "baggageDetailsRefId": "d352c107-1379-4202-abe5-2e3696a3c01f_ac2063c2-6e4e-45cc-87c3-e2dd97e1ec3b",
+                        "cabinCode": "Economy",
+                        "rbd": null
+                    }
+                ],
+                "discount": null
+            }
+        ],
+        "priceDetails": {
+            "totalAncillariesAmount": {
+                "amount": 151.00,
+                "currency": "SAR"
+            },
+            "totalPassengersAncillaries": [
+                {
+                    "ancillaryCode": "C0C1",
+                    "amount": {
+                        "amount": 151.00,
+                        "currency": "SAR"
+                    }
+                }
+            ],
+            "totalSelectedSeatsAmount": null,
+            "totalAmount": {
+                "amount": 733.50,
+                "currency": "SAR"
+            },
+            "totalTaxAmount": {
+                "amount": 281.50,
+                "currency": "SAR"
+            },
+            "totalBaseAmount": {
+                "amount": 301.00,
+                "currency": "SAR"
+            },
+            "taxesAndFees": [
+                {
+                    "code": "XK",
+                    "amount": {
+                        "amount": 11.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "T2",
+                    "amount": {
+                        "amount": 5.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "S4",
+                    "amount": {
+                        "amount": 8.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "QH",
+                    "amount": {
+                        "amount": 94.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "O2",
+                    "amount": {
+                        "amount": 1.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "JK",
+                    "amount": {
+                        "amount": 8.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "O9",
+                    "amount": {
+                        "amount": 4.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "IO",
+                    "amount": {
+                        "amount": 12.50,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "EQ",
+                    "amount": {
+                        "amount": 8.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "EG",
+                    "amount": {
+                        "amount": 11.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "E3",
+                    "amount": {
+                        "amount": 8.00,
+                        "currency": "SAR"
+                    }
+                },
+                {
+                    "code": "YQ",
+                    "amount": {
+                        "amount": 111.00,
+                        "currency": "SAR"
+                    }
+                }
+            ],
+            "discount": null
+        },
+        "refundability": "NotRefundable",
+        "isDealCodeApplied": null,
+        "appliedDealCode": null,
+        "isPromoted": false,
+        "appliedPromotionCode": ""
+    },
+    "isBspCommissionApplied": false,
+    "diRemarks": [],
+    "emdTickets": {
+        "T1": [
+            {
+                "emdTicketNumber": "1224260082313",
+                "connectedTicketNumber": "1222160135367",
+                "issueDate": "2026-09-17T00:00:00",
+                "ticketStatus": "Booked",
+                "emdCancelationRules": [
+                    {
+                        "description": "Cancellation is allowed with a 0% refund at no fee. Valid after booking until moment of departure.",
+                        "journeyStageCode": "BeforeDeparture",
+                        "penality": {
+                            "amount": 0.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "description": "No show policy: Cancellation is allowed with a 0% refund at no fee. Valid 2 hours before departure .",
+                        "journeyStageCode": "NoShow",
+                        "penality": {
+                            "amount": 0.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "description": "After departure policy: Cancellation is allowed with a 0% refund at no fee. ",
+                        "journeyStageCode": "AfterDeparture",
+                        "penality": {
+                            "amount": 0.00,
+                            "currency": "SAR"
+                        }
+                    }
+                ],
+                "ancillaryCode": "C0C1",
+                "segmentRefIds": [
+                    "DMS3b98e872-697e-4963-b4eb-6826c250784b"
+                ]
+            },
+            {
+                "emdTicketNumber": "1224260082314",
+                "connectedTicketNumber": "1222160135367",
+                "issueDate": "2026-09-17T00:00:00",
+                "ticketStatus": "Booked",
+                "emdCancelationRules": [
+                    {
+                        "description": "Cancellation is allowed with a 0% refund at no fee. Valid after booking until moment of departure.",
+                        "journeyStageCode": "BeforeDeparture",
+                        "penality": {
+                            "amount": 0.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "description": "No show policy: Cancellation is allowed with a 0% refund at no fee. Valid 2 hours before departure .",
+                        "journeyStageCode": "NoShow",
+                        "penality": {
+                            "amount": 0.00,
+                            "currency": "SAR"
+                        }
+                    },
+                    {
+                        "description": "After departure policy: Cancellation is allowed with a 0% refund at no fee. ",
+                        "journeyStageCode": "AfterDeparture",
+                        "penality": {
+                            "amount": 0.00,
+                            "currency": "SAR"
+                        }
+                    }
+                ],
+                "ancillaryCode": "C0C1",
+                "segmentRefIds": [
+                    "DMSac2063c2-6e4e-45cc-87c3-e2dd97e1ec3b"
+                ]
+            }
+        ]
+    }
+}

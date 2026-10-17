@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code-Level Disablement of NDC Supplier & Credentials</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --heading: #0d47a1;
+      --accent: #2962ff;
+      --border: #e0e0e0;
+      --code-bg: #f5f7fa;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 3rem 1rem;
+      background-image: linear-gradient(to bottom, #ffffff 0%, #f0f4f8 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+      color: white;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22grid%22 width=%2210%22 height=%2210%22 patternUnits=%22userSpaceOnUse%22><path d=%22M 10 0 L 0 0 0 10%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.1)%22 stroke-width=%221%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23grid)%22/></svg>') center/cover;
+      opacity: 0.3;
+    }
+
+    .page-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      letter-spacing: -0.5px;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 1rem 0 0;
+      position: relative;
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    .page-body {
+      padding: 3rem 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin: 2.5rem 0 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 3px solid #e3f2fd;
+      position: relative;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1565c0;
+      margin: 2rem 0 1rem;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.8rem;
+    }
+
+    ul.bulleted-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.bulleted-list > li {
+      position: relative;
+      padding-left: 2rem;
+      margin: 0.8rem 0;
+      font-size: 1.05rem;
+    }
+
+    ul.bulleted-list > li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    ul.bulleted-list > li > ul {
+      margin-top: 0.6rem;
+    }
+
+    ul.bulleted-list > li > ul > li::before {
+      content: "◦";
+      color: #64b5f6;
+    }
+
+    strong {
+      color: #0d47a1;
+      font-weight: 600;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+      background: var(--code-bg);
+      padding: 0.2em 0.4em;
+      border-radius: 6px;
+      font-size: 0.9em;
+      color: #d32f2f;
+      border: 1px solid #e0e0e0;
+    }
+
+    .callout {
+      background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 5px solid var(--accent);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.1);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .comparison-table th {
+      background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .approach-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--accent);
+    }
+
+    .approach-card h4 {
+      font-size: 1.3rem;
+      color: var(--heading);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .approach-card h4::before {
+      content: "•";
+      margin-right: 0.5rem;
+      color: var(--accent);
+      font-size: 1.8rem;
+    }
+
+    .implementation-steps {
+      margin-top: 1rem;
+    }
+
+    .implementation-steps h5 {
+      font-size: 1.1rem;
+      color: #1565c0;
+      margin: 1rem 0 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-title { font-size: 2.2rem; }
+      header { padding: 2.5rem 1.5rem; }
+      .page-body { padding: 2rem 1.5rem; }
+      h2 { font-size: 1.7rem; }
+      .comparison-table { font-size: 0.9rem; }
+    }
+
+    /* Print friendly */
+    @media print {
+      body { background: white; }
+      .container { box-shadow: none; border: none; }
+      header { background: #0d47a1 !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="page-title">Code-Level Disablement of NDC Supplier &amp; Credentials</h1>
+      <p class="page-subtitle">Technical Investigation & Implementation Approaches</p>
+    </header>
+
+    <div class="page-body">
+      <h2>Overview</h2>
+      <p>This document outlines the investigation and technical approach for implementing code-level disablement of suppliers and their related customers in the NDC system.</p>
+      
+      <div class="callout">
+        <strong>Primary Goal:</strong> Establish a mechanism that ensures system-enforced distribution and prevents unauthorized manipulation of supplier settings.
+      </div>
+
+      <h2>Objectives</h2>
+      <ul class="bulleted-list">
+        <li><strong>Disables</strong> suppliers and credentials directly at code level — ensuring system-enforced distribution</li>
+        <li><strong>Prompts</strong> U-Board modifications — business units cannot re-make or modify board suppliers through the admin interface</li>
+        <li><strong>Provides</strong> premium distributions carried — specific suppliers requiring system-enforced distribution remain protected</li>
+        <li><strong>Prevents</strong> unauthorized manipulation — accidents or intentional restrictions on the U-B Boarded suppliers</li>
+      </ul>
+
+      <h2>Technical Approaches</h2>
+      
+      <div class="approach-card">
+        <h4>Approach 1: Service Layer Enforcement</h4>
+        <p>Complete Windows 1 version of the Register System. The service layer utilized the property unit reports any details or modify requests.</p>
+        
+        <div class="implementation-steps">
+          <h5>Implementation Details</h5>
+          <ul class="bulleted-list">
+            <li><strong>Database Systems Update</strong>
+              <ul>
+                <li>Add Version column to the suppliers table</li>
+                <li>Set default value</li>
+              </ul>
+            </li>
+            <li><strong>Service Layer Validation</strong>
+              <ul>
+                <li>Version column to the suppliers table</li>
+                <li>Make sure necessary details are column to the suppliers table</li>
+                <li>Monitor if required</li>
+                <li>Support operations</li>
+                <li>Status notifications</li>
+              </ul>
+            </li>
+            <li><strong>Credential Protection</strong>
+              <ul>
+                <li>Version column to the suppliers table</li>
+                <li>Ensure supplier ID cards confirmed</li>
+                <li>Check the class below allowing credential notifications</li>
+              </ul>
+            </li>
+            <li><strong>Database Level Protection</strong>
+              <ul>
+                <li>Implement a DB logger in certain related questions</li>
+                <li>Only specified authorized users can modify board suppliers</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="approach-card">
+        <h4>Approach 2: Database Trigger Enforcement</h4>
+        <p>Complete Trigger™ Certification™ Trigger™ Bus prevent conflicts from status or credentials when failed to be.</p>
+        
+        <div class="implementation-steps">
+          <h5>Implementation Details</h5>
+          <ul class="bulleted-list">
+            <li><strong>Database Systems Update</strong>
+              <ul>
+                <li>Add Version column to the suppliers table</li>
+                <li>Set default value</li>
+              </ul>
+            </li>
+            <li><strong>Supplier Protection Trigger</strong>
+              <ul>
+                <li>Create copy on the table</li>
+                <li>Check if failed to be</li>
+              </ul>
+            </li>
+            <li><strong>Contracting to modify or other protected fields</strong>
+              <ul>
+                <li>If there are more and block the operation</li>
+              </ul>
+            </li>
+            <li><strong>Credential Protection Trigger</strong>
+              <ul>
+                <li>Implement trigger on the table</li>
+                <li>Prompt charging off new status or credentials then/enclosed suppliers with failed to be</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="approach-card">
+        <h4>Approach 3: Enum-Based Locking</h4>
+        <p>Add an enum containing all locked suppliers to enforce disablement at the configuration level.</p>
+        
+        <div class="implementation-steps">
+          <h5>Implementation Details</h5>
+          <ul class="bulleted-list">
+            <li><strong>Enum Definition</strong>
+              <ul>
+                <li>Add a LockedSupplier enum with all locked suppliers</li>
+              </ul>
+            </li>
+            <li><strong>Validation Logic</strong>
+              <ul>
+                <li>Check whether the supplierConfigModal has a locked supplier from this enum</li>
+                <li>If having, remove this from the supplierConfigModal list</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="approach-card">
+        <h4>Approach 4: Code-Level Flag</h4>
+        <p>Add a boolean flag to the required supplier to enforce disablement directly in the code.</p>
+        
+        <div class="implementation-steps">
+          <h5>Implementation Details</h5>
+          <ul class="bulleted-list">
+            <li><strong>Flag Implementation</strong>
+              <ul>
+                <li>Add a boolean flag to the required supplier</li>
+              </ul>
+            </li>
+            <li><strong>Validation Logic</strong>
+              <ul>
+                <li>Check for this boolean flag if it's true, lock this supplier</li>
+                <li>So the user cannot activate it</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Comparison Matrix</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Approach 1: Services Layer</th>
+            <th>Approach 2: Database Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Enforcement Level</strong></td>
+            <td>Application layer</td>
+            <td>Database layer</td>
+          </tr>
+          <tr>
+            <td><strong>Reliability</strong></td>
+            <td>More flexible, easier to modify logic</td>
+            <td>More rigid, requires migration to change</td>
+          </tr>
+          <tr>
+            <td><strong>Performance</strong></td>
+            <td>Additional service calls</td>
+            <td>Native database operators</td>
+          </tr>
+          <tr>
+            <td><strong>Error Handling</strong></td>
+            <td>Controller application menu</td>
+            <td>Database-level completion</td>
+          </tr>
+          <tr>
+            <td><strong>Dynamic Risk</strong></td>
+            <td>Can be bypassed by direct DB access</td>
+            <td>Cannot be bypassed at all</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Conclusion</h2>
+      <p>Both approaches provide robust mechanisms for achieving supplier disablement at the code level. The Global Solution Flow Question set:</p>
+      
+      <ul class="bulleted-list">
+        <li><strong>Security requirements</strong> — Approach 2 offers stronger protection</li>
+        <li><strong>Protecting vessels</strong> — Approach 1 allows easier business logic considerations</li>
+        <li><strong>System architecture</strong> — Connects existing systems in the codebase</li>
+      </ul>
+      
+      <div class="callout">
+        <strong>Recommendation:</strong> A hybrid approach combining both service layer validation and database triggers may provide the optimal balance of flexibility and security.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

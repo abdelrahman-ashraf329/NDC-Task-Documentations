@@ -1,0 +1,121 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="FCbX4XF0LOolDEIv_96O">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eY8a4e3BrfZguGUkxUcQ-2" target="_xQfo-ag_DMq9HuANhKP-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eY8a4e3BrfZguGUkxUcQ-2" target="_xQfo-ag_DMq9HuANhKP-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eY8a4e3BrfZguGUkxUcQ-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="1290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eY8a4e3BrfZguGUkxUcQ-2" value="API Gateway" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="280" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eY8a4e3BrfZguGUkxUcQ-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="eY8a4e3BrfZguGUkxUcQ-16" target="eY8a4e3BrfZguGUkxUcQ-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eY8a4e3BrfZguGUkxUcQ-16" value="GetFlightSearchFromSupplier&lt;br&gt;endpoint" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="460" y="920" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eY8a4e3BrfZguGUkxUcQ-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="eY8a4e3BrfZguGUkxUcQ-24" target="eY8a4e3BrfZguGUkxUcQ-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eY8a4e3BrfZguGUkxUcQ-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="eY8a4e3BrfZguGUkxUcQ-24" target="eY8a4e3BrfZguGUkxUcQ-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eY8a4e3BrfZguGUkxUcQ-24" value="call suppliers&lt;br&gt;(getFlightSearch)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="480" y="1070" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-1" value="Every flight will be hashed and&lt;br&gt;stored by Id, so the flights inside the cache&lt;br&gt;will be stored as&lt;br&gt;{flightId -&amp;gt; flight}. To use it in fareConfirm" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="690" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-3" target="eY8a4e3BrfZguGUkxUcQ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-3" value="Client-Side" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="330" y="340" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-5" target="_xQfo-ag_DMq9HuANhKP-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-5" value="User search for a flight" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-7" value="In addition to putting the flights from supplier&lt;br&gt;in form of&amp;nbsp;&lt;br&gt;{Token -&amp;gt; compressedFlight}" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="5" y="775" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-11" target="_xQfo-ag_DMq9HuANhKP-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-11" value="Generate Token" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-17" target="eY8a4e3BrfZguGUkxUcQ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-21" value="yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_xQfo-ag_DMq9HuANhKP-19">
+          <mxGeometry x="-0.573" y="1" relative="1" as="geometry">
+            <mxPoint x="4" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-23" value="return results" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_xQfo-ag_DMq9HuANhKP-19">
+          <mxGeometry x="-0.0189" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-17" target="eY8a4e3BrfZguGUkxUcQ-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-30" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_xQfo-ag_DMq9HuANhKP-29">
+          <mxGeometry x="-0.1509" y="3" relative="1" as="geometry">
+            <mxPoint x="1" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-17" value="Check the Gateway&#39;s&amp;nbsp;&lt;br&gt;cache , if the token is already exist?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="635" y="660" width="170" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-31" target="eY8a4e3BrfZguGUkxUcQ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-34" value="store in cache&lt;br&gt;in form of&amp;nbsp;&lt;br&gt;(flightId -&amp;gt; hashedFlight)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_xQfo-ag_DMq9HuANhKP-33">
+          <mxGeometry x="0.3302" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-31" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="890" width="425" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-32" value="Server-Side" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="695" y="898" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-35" target="_xQfo-ag_DMq9HuANhKP-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-35" value="Select a flight to&lt;br&gt;fareConfirm" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_xQfo-ag_DMq9HuANhKP-36" target="eY8a4e3BrfZguGUkxUcQ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-43" value="&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; background-color: rgb(251, 251, 251);&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22get%20the%20selected%20flight%20from%20Gateway&#39;s%26lt%3Bbr%26gt%3Bcache%22%20style%3D%22edgeLabel%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3Bresizable%3D0%3Bpoints%3D%5B%5D%3B%22%20vertex%3D%221%22%20connectable%3D%220%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22250%22%20y%3D%221032%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; background-color: rgb(251, 251, 251);&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22get%20the%20selected%20flight%20from%20Gateway&#39;s%26lt%3Bbr%26gt%3Bcache%22%20style%3D%22edgeLabel%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3Bresizable%3D0%3Bpoints%3D%5B%5D%3B%22%20vertex%3D%221%22%20connectable%3D%220%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22250%22%20y%3D%221032%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_xQfo-ag_DMq9HuANhKP-42">
+          <mxGeometry x="-0.2187" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-36" value="Client-Side" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="190" y="1290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_xQfo-ag_DMq9HuANhKP-44" value="get the selected flight from Gateway&#39;s&lt;br&gt;cache" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="250" y="1032" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

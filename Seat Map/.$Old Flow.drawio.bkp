@@ -1,0 +1,590 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17" pages="2">
+  <diagram id="flowchart" name="Flowchart">
+    <mxGraphModel dx="4243" dy="929" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2650" pageHeight="1070" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fc1" value="ServiceQouteService (class)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="460" y="10" width="1090" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="fc2" value="FlightHelperUtil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="1620" y="90" width="480" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="fc3" value="FlightWsService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="380" y="830" width="280" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="fc4" value="FlightUtil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="800" y="860" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fc5" value="AirArabiaConnector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="1200" y="850" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fc6" value="AirArabiaResponseUtil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="1810" y="830" width="380" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="fc7" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="-100" y="50" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fc8" value="ssr-qoute endpoint&#xa;&#xa;Takes a list of passengers&#xa;as the RequestBody" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="210" y="20" width="190" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fc9" value="ssrServiceQuoteAdminV2(...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="520" y="65" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="fc10" value="ssrServiceQouteAdmin&#xa;(FlightBookingBean, FlightWidget)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="950" y="10" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="fc11" value="processSsrService()&#xa;&#xa;prepare the request first,&#xa;then check isGDS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="920" y="140" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fc12" value="isGDS&#xa;(TravelFusion) ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="960" y="230" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="fc13" value="mapToSpecialServiceRequestDto()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="590" y="250" width="240" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="fc14" value="isNdcIntegration ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="970" y="380" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fc15" value="callSsrService()&#xa;&#xa;After response from supplier,&#xa;maps Baggage, Meal, Seat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="560" y="500" width="230" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fc16" value="support&#xa;Baggage ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="430" y="500" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fc17" value="BOOKING&#xa;_FROM_&#xa;PORTAL ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="960" y="520" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fc18" value="processRetrieveServiceRequestBean&#xa;(FlightWidget, FlightBookingBean, RetrieveServiceQouteRequestBean)&#xa;&#xa;Builds the request used to fetch all Ancillary&#xa;data (Baggage, Meal, Seat). Sets FlightOption,&#xa;OnwardDate, Supplier (default = FlyDubai), and&#xa;an empty BundleList if applicable." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;" parent="1" vertex="1">
+          <mxGeometry x="1650" y="120" width="420" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="fc19" value="PaxService&#xa;&#xa;getAddPaxResponse&#xa;(AddPaxToBookingRequestBean)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1560" y="385" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fc20" value="FlightUtil&#xa;&#xa;addPaxToBooking(ServiceRequestBean)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="2030" y="480" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fc21" value="Integration" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="2370" y="490" width="170" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="fc22" value="callAncillaryService()&#xa;&#xa;Takes (RetrieveServiceQoutesRequestBean,&#xa;AddPaxToBookingResponseBean)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1620" y="620" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fc23" value="AncillaryService&#xa;&#xa;getAncillariesResponse&#xa;making the mapping from integration" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="2010" y="630" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fc24" value="getSsrService&#xa;(RetrieveServiceQoutesRequestBean)&#xa;&#xa;Adds extra data for specific suppliers&#xa;that support bundles instead of seat,&#xa;e.g. SalamAir." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;" parent="1" vertex="1">
+          <mxGeometry x="400" y="860" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="fc25" value="getFlightServiceQuoteResult()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="830" y="890" width="150" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="fc26" value="getFlightServiceQuoteResult()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="890" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="fc27" value="parseAirArabiaServiceQuoteResponseForSeatAvailability()&#xa;&#xa;Parses the SeatResponse:&#xa;  - VAC code -&gt; occupied&#xa;  - A or F  -&gt; window seat" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;" parent="1" vertex="1">
+          <mxGeometry x="1830" y="870" width="340" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="fc28" value="asks for ancillaries&#xa;(Baggage, Meal, Seat)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc7" target="fc8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc29" value="passenger list&#xa;(RequestBody)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc8" target="fc9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc30" value="prepare FlightBookingBean&#xa;(requestBean, OnwardFlightOption, PassengerList)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc9" target="fc10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc31" value="invoke" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc10" target="fc11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc32" value="prepare RetrieveServiceQouteRequestBean" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc11" target="fc18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc33" value="Response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;strokeColor=#999999;" parent="1" source="fc18" target="fc11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc34" value="check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc11" target="fc12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc35" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc12" target="fc13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc36" value="response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;strokeColor=#999999;" parent="1" source="fc13" target="fc8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc37" value="else" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc12" target="fc14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc38" value="else" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc14" target="fc15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc39" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc14" target="fc17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc40" value="else (not booked via portal)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc17" target="fc19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc41" value="yes (already booked)&#xa;[inferred]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;strokeColor=#999999;" parent="1" source="fc17" target="fc22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc42" value="addPaxToBooking(ServiceRequestBean)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;startFill=1;" parent="1" source="fc19" target="fc20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;startFill=1;" parent="1" source="fc20" target="fc21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc44" value="response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;strokeColor=#999999;" parent="1" source="fc19" target="fc22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc45" value="getAncillariesResponse" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;startFill=1;" parent="1" source="fc22" target="fc23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;startFill=1;" parent="1" source="fc23" target="fc21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc47" value="check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc15" target="fc16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc48" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" parent="1" source="fc16" target="fc24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc49" value="response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;strokeColor=#999999;" parent="1" source="fc24" target="fc15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc50" value="getFlightServiceQuoteResult" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;startFill=1;" parent="1" source="fc24" target="fc25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc51" value="getFlightServiceQuoteResult" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;startFill=1;" parent="1" source="fc25" target="fc26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc52" value="parseAirArabiaServiceQuoteResponseForSeatAvailability" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;startFill=1;" parent="1" source="fc26" target="fc27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="sequence" name="Sequence Diagram">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageWidth="2450" pageHeight="1500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sq1" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq2" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="60" as="sourcePoint" />
+            <mxPoint x="60" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq3" value="ssr-qoute&#xa;Endpoint" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq4" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="60" as="sourcePoint" />
+            <mxPoint x="250" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq5" value="ServiceQouteService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq6" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="60" as="sourcePoint" />
+            <mxPoint x="460" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq7" value="FlightHelperUtil" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="610" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq8" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="60" as="sourcePoint" />
+            <mxPoint x="700" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq9" value="PaxService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="840" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq10" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="930" y="60" as="sourcePoint" />
+            <mxPoint x="930" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq11" value="FlightUtil" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq12" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1140" y="60" as="sourcePoint" />
+            <mxPoint x="1140" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq13" value="Integration" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq14" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1350" y="60" as="sourcePoint" />
+            <mxPoint x="1350" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq15" value="AncillaryService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1470" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq16" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1560" y="60" as="sourcePoint" />
+            <mxPoint x="1560" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq17" value="FlightWsService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq18" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1790" y="60" as="sourcePoint" />
+            <mxPoint x="1790" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq19" value="AirArabiaConnector" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq20" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2010" y="60" as="sourcePoint" />
+            <mxPoint x="2010" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq21" value="AirArabiaResponseUtil" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="2160" y="10" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sq22" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2250" y="60" as="sourcePoint" />
+            <mxPoint x="2250" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq23" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq24" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="90" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq25" value="ask for ancillaries (Baggage, Meal, Seat)&#xa;for passenger list" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq23" target="sq24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq26" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="126" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq27" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="126" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq28" value="ssrServiceQuoteAdminV2(RequestBody)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq26" target="sq27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq29" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="162" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq30" value="prepare FlightBookingBean&#xa;(requestBean, OnwardFlightOption, PassengerList)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;rounded=1;" edge="1" parent="1" source="sq29" target="sq29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="162" />
+              <mxPoint x="550" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq31" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="198" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq32" value="ssrServiceQouteAdmin(FlightBookingBean, FlightWidget)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;rounded=1;" edge="1" parent="1" source="sq31" target="sq31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="198" />
+              <mxPoint x="550" y="216" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq33" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="234" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq34" value="processSsrService(): prepare request, then check isGDS" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;rounded=1;" edge="1" parent="1" source="sq33" target="sq33">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="234" />
+              <mxPoint x="550" y="252" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq35" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="270" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq36" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="270" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq37" value="processRetrieveServiceRequestBean(FlightWidget,&#xa;FlightBookingBean, RetrieveServiceQouteRequestBean)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq35" target="sq36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq38" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="306" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq39" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="306" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq40" value="Response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq38" target="sq39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq41" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="342" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq42" value="mapToSpecialServiceRequestDto()" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;rounded=1;" edge="1" parent="1" source="sq41" target="sq41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="342" />
+              <mxPoint x="550" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq43" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="378" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq44" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="378" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq45" value="response (special service request DTO)" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq43" target="sq44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq46" value="alt  [isGDS == true (TravelFusion)]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#B85450;verticalAlign=top;align=left;spacingLeft=6;spacingTop=2;fontSize=10;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="336" width="-80" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="sq47" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="420" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq48" value="check BOOKING_FROM_PORTAL" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;rounded=1;" edge="1" parent="1" source="sq47" target="sq47">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="420" />
+              <mxPoint x="550" y="438" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq49" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="456" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq50" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="930" y="456" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq51" value="getAddPaxResponse(AddPaxToBookingRequestBean)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq49" target="sq50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq52" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="930" y="492" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq53" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="492" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq54" value="addPaxToBooking(ServiceRequestBean)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq52" target="sq53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq55" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="528" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq56" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="528" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq57" value="(forward request)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq55" target="sq56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq58" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="564" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq59" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="564" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq60" value="response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq58" target="sq59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq61" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="600" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq62" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="930" y="600" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq63" value="Response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq61" target="sq62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq64" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="930" y="636" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq65" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="636" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq66" value="Response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq64" target="sq65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq67" value="else  [not already booked via portal]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#B85450;verticalAlign=top;align=left;spacingLeft=6;spacingTop=2;fontSize=10;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="450" width="1010" height="222" as="geometry" />
+        </mxCell>
+        <mxCell id="sq68" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="678" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq69" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="678" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq70" value="callAncillaryService(RetrieveServiceQoutesRequestBean,&#xa;AddPaxToBookingResponseBean) -&gt; getAncillariesResponse" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq68" target="sq69">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq71" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="714" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq72" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="714" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq73" value="(mapping from integration)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq71" target="sq72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq74" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="750" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq75" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="750" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq76" value="response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq74" target="sq75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq77" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="786" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq78" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="786" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq79" value="Response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq77" target="sq78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq80" value="else  [isNdcIntegration == true]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#B85450;verticalAlign=top;align=left;spacingLeft=6;spacingTop=2;fontSize=10;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="420" width="1030" height="402" as="geometry" />
+        </mxCell>
+        <mxCell id="sq81" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="828" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq82" value="callSsrService()" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;rounded=1;" edge="1" parent="1" source="sq81" target="sq81">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="828" />
+              <mxPoint x="550" y="846" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq83" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="864" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq84" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="864" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq85" value="getSsrService(RetrieveServiceQoutesRequestBean)" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq83" target="sq84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq86" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="900" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq87" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="900" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq88" value="getFlightServiceQuoteResult()" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq86" target="sq87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq89" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="936" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq90" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="936" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq91" value="getFlightServiceQuoteResult()" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq89" target="sq90">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq92" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="972" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq93" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="2250" y="972" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq94" value="parseAirArabiaServiceQuoteResponseForSeatAvailability()" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;" edge="1" parent="1" source="sq92" target="sq93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq95" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="2250" y="1008" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq96" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="1008" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq97" value="seat availability&#xa;(VAC=occupied, A/F=window)" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq95" target="sq96">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq98" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="1044" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq99" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="1044" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq100" value="response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq98" target="sq99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq101" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="1080" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq102" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="1080" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq103" value="response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq101" target="sq102">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq104" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="1116" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq105" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1116" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq106" value="response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq104" target="sq105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq107" value="alt  [support Baggage == true]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#B85450;verticalAlign=top;align=left;spacingLeft=6;spacingTop=2;fontSize=10;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="858" width="2040" height="294" as="geometry" />
+        </mxCell>
+        <mxCell id="sq108" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1158" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq109" value="map Baggage, Meal, Seat from supplier response" style="html=1;fontSize=9;endArrow=block;endFill=1;strokeColor=#333333;rounded=1;" edge="1" parent="1" source="sq108" target="sq108">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="1158" />
+              <mxPoint x="550" y="1176" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sq110" value="else  [not GDS, not NDC]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#B85450;verticalAlign=top;align=left;spacingLeft=6;spacingTop=2;fontSize=10;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="828" width="2080" height="366" as="geometry" />
+        </mxCell>
+        <mxCell id="sq111" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1204" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq112" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="1204" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq113" value="SSR quote response" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq111" target="sq112">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq114" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="1240" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq115" style="point;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1240" width="1" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sq116" value="Baggage, Meal, Seat options" style="html=1;fontSize=9;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="sq114" target="sq115">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

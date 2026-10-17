@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singleton Pattern Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 70px;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.92;
+            font-weight: 300;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 700;
+            margin-top: 80px;
+        }
+
+        .goals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            margin-bottom: 80px;
+            animation: slideUp 0.8s ease 0.15s both;
+        }
+
+        .goal-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        .goal-card h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            font-weight: 700;
+        }
+
+        .goal-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.96em;
+        }
+
+        .approaches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .approach-card {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            animation: slideUp 0.8s ease backwards;
+        }
+
+        .approach-card:nth-child(1) { animation-delay: 0.3s; }
+        .approach-card:nth-child(2) { animation-delay: 0.5s; }
+
+        .approach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 90px rgba(102, 126, 234, 0.3);
+        }
+
+        .approach-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .approach-subtitle {
+            color: #999;
+            margin-bottom: 35px;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+
+        .flow-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef7 100%);
+            border-radius: 14px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        .flow-container::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+            position: relative;
+            z-index: 1;
+            animation: stepIn 0.6s ease backwards;
+        }
+
+        @keyframes stepIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2em;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .step-text {
+            margin-left: 20px;
+            color: #444;
+            font-size: 0.98em;
+            line-height: 1.6;
+        }
+
+        .thread-group {
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 3px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .thread-title {
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .thread-item {
+            color: #666;
+            margin: 8px 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(102, 126, 234, 0.3);
+            padding-left: 15px;
+            font-size: 0.93em;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .pros, .cons {
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .pros {
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-left: 4px solid #10b981;
+        }
+
+        .cons {
+            background: linear-gradient(135deg, rgba(248, 113, 113, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+            border-left: 4px solid #ef4444;
+        }
+
+        .pros h4 {
+            color: #10b981;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cons h4 {
+            color: #ef4444;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            color: #666;
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .pros li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .cons li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+            animation: slideUp 0.8s ease 0.7s both;
+        }
+
+        .comparison-wrapper {
+            background: white;
+            border-radius: 16px;
+            padding: 45px;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            overflow-x: auto;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.98em;
+        }
+
+        .comparison-table td {
+            padding: 18px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .check {
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        .cross {
+            color: #ef4444;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        .dim {
+            color: #999;
+        }
+
+        .highlight-yellow {
+            background: #fef08a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LogHelper Performance Improvement</h1>
+            <p class="subtitle">Thread-Safe Initialization Strategies for JVM</p>
+        </header>
+
+        <div class="section-title">Goal of Task</div>
+        <div class="goals">
+            <div class="goal-card">
+                <h3>One Instance</h3>
+                <p>Guarantee exactly one object per JVM instance, ensuring a single point of access throughout the application lifecycle.</p>
+            </div>
+            <div class="goal-card">
+                <h3>Thread Safety</h3>
+                <p>Thread-safe access under high concurrency with multiple threads attempting simultaneous instantiation.</p>
+            </div>
+            <div class="goal-card">
+                <h3>Safe Initialization</h3>
+                <p>Zero risk of partial initialization or race conditions that could corrupt the singleton state.</p>
+            </div>
+            <div class="goal-card">
+                <h3>Performance</h3>
+                <p>Minimal performance overhead while maintaining thread safety and correctness guarantees.</p>
+            </div>
+        </div>
+
+        <div class="section-title">Approach 1: Synchronized</div>
+        <div class="approaches">
+            <div class="approach-card">
+                <div class="approach-title">Synchronized getInstance()</div>
+                <div class="approach-subtitle">JVM enforces mutual exclusion on every invocation, ensuring only one thread can enter the method at a time with guaranteed visibility.</div>
+
+                <div class="flow-container">
+                    <div class="flow-step" style="animation-delay: 0.1s;">
+                        <div class="step-icon">1</div>
+                        <div class="step-text"><strong>synchronized</strong> keyword applied to getInstance()</div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.2s;">
+                        <div class="step-icon">2</div>
+                        <div class="step-text">JVM acquires monitor lock on the class object</div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.3s;">
+                        <div class="step-icon">3</div>
+                        <div class="step-text">Check if <code>instance == null</code></div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.4s;">
+                        <div class="step-icon">4</div>
+                        <div class="step-text">Create new instance via <code>new LogHelper()</code></div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.5s;">
+                        <div class="step-icon">5</div>
+                        <div class="step-text">Assign reference and release lock</div>
+                    </div>
+                </div>
+
+                <div class="thread-group">
+                    <div class="thread-title">Thread Behavior</div>
+                    <div class="thread-item">Thread A: Acquires lock, creates instance</div>
+                    <div class="thread-item">Thread B: BLOCKED - waiting for lock</div>
+                    <div class="thread-item">Thread C: BLOCKED - waiting for lock</div>
+                    <div class="thread-item">Thread D: BLOCKED - waiting for lock</div>
+                </div>
+
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul class="item-list">
+                            <li>Guarantees exactly one object per JVM</li>
+                            <li>Guarantees visibility &amp; atomicity</li>
+                            <li>Simple and straightforward</li>
+                            <li>No complex state management</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul class="item-list">
+                            <li>Lock acquired on <span class="highlight-yellow">every call</span></li>
+                            <li>High contention under load</li>
+                            <li>Performance bottleneck</li>
+                            <li>Poor scalability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Approach 2: Double-Checked Locking (Volatile + Synchronized)</div>
+        <div class="approaches">
+            <div class="approach-card">
+                <div class="approach-title">Double-Checked Locking Pattern</div>
+                <div class="approach-subtitle">First check avoids locking after initialization. Synchronization occurs only during creation, with volatile ensuring safe publication.</div>
+
+                <div class="flow-container">
+                    <div class="flow-step" style="animation-delay: 0.1s;">
+                        <div class="step-icon">1</div>
+                        <div class="step-text"><strong>First check:</strong> <code>if (instance == null)</code> - no lock needed</div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.2s;">
+                        <div class="step-icon">2</div>
+                        <div class="step-text">Acquire <code>synchronized</code> lock on class object</div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.3s;">
+                        <div class="step-icon">3</div>
+                        <div class="step-text"><strong>Second check:</strong> <code>if (instance == null)</code> inside synchronized block</div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.4s;">
+                        <div class="step-icon">4</div>
+                        <div class="step-text">Create instance: <code>new LogHelper()</code></div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.5s;">
+                        <div class="step-icon">5</div>
+                        <div class="step-text">Volatile write ensures safe publication to all threads</div>
+                    </div>
+                    <div class="flow-step" style="animation-delay: 0.6s;">
+                        <div class="step-icon">6</div>
+                        <div class="step-text">Lock released, subsequent calls skip sync block</div>
+                    </div>
+                </div>
+
+                <div class="thread-group">
+                    <div class="thread-title">Thread Behavior (After Initialization)</div>
+                    <div class="thread-item">Thread A: Creates instance inside synchronized block</div>
+                    <div class="thread-item">Thread B: Briefly waits, then sees non-null instance → proceeds</div>
+                    <div class="thread-item">Thread C: First check sees non-null → proceeds immediately (NO LOCK)</div>
+                    <div class="thread-item">Thread D: First check sees non-null → proceeds immediately (NO LOCK)</div>
+                </div>
+
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul class="item-list">
+                            <li>Locking occurs <span class="highlight-yellow">once per JVM</span></li>
+                            <li>Near-zero overhead after initialization</li>
+                            <li>Excellent scalability under load</li>
+                            <li>Production-ready approach</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul class="item-list">
+                            <li>More complex implementation</li>
+                            <li>Requires understanding of volatile semantics</li>
+                            <li>Difficult to get right initially</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-wrapper">
+            <div class="section-title" style="margin-top: 0;">Side-by-Side Comparison</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>Synchronized Only</th>
+                        <th>Synchronized + Volatile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Correctness</strong></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Guarantees One Object</strong></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lock Frequency</strong></td>
+                        <td><span style="color: #ef4444; font-weight: 700;">Every call</span></td>
+                        <td><span style="color: #10b981; font-weight: 700;">Once per JVM</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Performance</strong></td>
+                        <td>Medium–Low</td>
+                        <td><span style="color: #10b981; font-weight: 700;">High</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scalability</strong></td>
+                        <td>Limited</td>
+                        <td><span style="color: #10b981; font-weight: 700;">Excellent</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Implementation Complexity</strong></td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

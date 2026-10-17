@@ -1,0 +1,193 @@
+-- =========================================================
+-- ----------- Rule Attribute Migration Script -------------
+-- =========================================================
+/*
+1. backup
+2. calculate count of all values splitted by comma
+3. Split Airline Codes into rows
+4. Match Airline Codes to SUPPLIER_ID
+5. Final valid value ID per rule
+6. update the CRITERIA_VALUE 
+*/
+
+-- =========================================================
+-- 1. backup
+-- =========================================================
+DROP TABLE IF EXISTS wonderdb.TT_TS_RULE_CRITERIA_BACKUP_ATTR_1_20260531;
+
+CREATE TABLE wonderdb.TT_TS_RULE_CRITERIA_BACKUP_ATTR_1_20260531
+SELECT *
+FROM wonderdb.TT_TS_RULE_CRITERIA
+WHERE RULES_ATTR_UID = 1;
+
+-- Verify backup count
+SELECT COUNT(*) AS backup_count
+FROM wonderdb.TT_TS_RULE_CRITERIA_BACKUP_ATTR_1_20260531;
+
+SELECT COUNT(*) AS source_count
+FROM wonderdb.TT_TS_RULE_CRITERIA
+WHERE RULES_ATTR_UID = 1;
+
+-- =========================================================
+-- 2. calculate count of all values splitted by comma
+-- =========================================================
+DROP TEMPORARY TABLE IF EXISTS TEMP_01;
+CREATE TEMPORARY TABLE TEMP_01
+WITH RECURSIVE split_data AS (
+    -- First split
+    SELECT
+        RULE_CRITERIA_UID,
+        TRIM(
+            REGEXP_REPLACE(
+                SUBSTRING_INDEX(CRITERIA_VALUE, ',', 1),
+                '[[:space:]]+',
+                ' '
+            )
+        ) AS VALUE_ITEM,
+
+       SUBSTRING(
+            CRITERIA_VALUE,
+            LENGTH(SUBSTRING_INDEX(CRITERIA_VALUE, ',', 1)) + 2
+        ) AS REMAINING
+    FROM TT_TS_RULE_CRITERIA
+    WHERE RULES_ATTR_UID = 1
+
+    UNION ALL
+
+    -- Remaining values
+    SELECT
+        RULE_CRITERIA_UID,
+       TRIM(
+            REGEXP_REPLACE(
+                SUBSTRING_INDEX(REMAINING, ',', 1),
+                '[[:space:]]+',
+                ' '
+            )
+        ) AS VALUE_ITEM,
+
+       SUBSTRING(
+            REMAINING,
+            LENGTH(SUBSTRING_INDEX(REMAINING, ',', 1)) + 2
+        ) AS REMAINING
+    FROM split_data
+    WHERE REMAINING IS NOT NULL
+      AND REMAINING <> ''
+)
+
+SELECT
+    RULE_CRITERIA_UID,
+    COUNT(*) AS VALUE_COUNT
+FROM split_data
+WHERE VALUE_ITEM <> ''
+GROUP BY RULE_CRITERIA_UID;
+
+select * from TEMP_01;
+select sum(VALUE_COUNT) from TEMP_01;
+
+-- =========================================================
+-- 3. Split values into rows
+-- =========================================================
+DROP TEMPORARY TABLE IF EXISTS TEMP_02;
+CREATE TEMPORARY TABLE TEMP_02
+WITH RECURSIVE split_data AS (
+    -- First value
+    SELECT
+        RULE_CRITERIA_UID,
+        TRIM(
+            REGEXP_REPLACE(
+                SUBSTRING_INDEX(CRITERIA_VALUE, ',', 1),
+                '[[:space:]]+',
+                ' '
+            )
+        ) AS VALUE_ITEM,
+
+        SUBSTRING(
+            CRITERIA_VALUE,
+            LENGTH(SUBSTRING_INDEX(CRITERIA_VALUE, ',', 1)) + 2
+        ) AS REMAINING
+    FROM TT_TS_RULE_CRITERIA WHERE RULES_ATTR_UID = 1
+
+    UNION ALL
+
+    -- Remaining values
+    SELECT
+        RULE_CRITERIA_UID,
+        TRIM(
+            REGEXP_REPLACE(
+                SUBSTRING_INDEX(REMAINING, ',', 1),
+                '[[:space:]]+',
+                ' '
+            )
+        ) AS VALUE_ITEM,
+
+        SUBSTRING(
+            REMAINING,
+            LENGTH(SUBSTRING_INDEX(REMAINING, ',', 1)) + 2
+        ) AS REMAINING
+    FROM split_data
+    WHERE REMAINING IS NOT NULL
+      AND REMAINING <> ''
+)
+SELECT
+    RULE_CRITERIA_UID,
+    VALUE_ITEM
+FROM split_data
+WHERE VALUE_ITEM <> '';
+
+-- =========================================================
+-- 4. Match values to their IDs
+-- =========================================================
+-- preprocessing step (delete all deleted airlineCodes)
+
+DROP TEMPORARY TABLE IF EXISTS TEMP_03;
+CREATE TEMPORARY TABLE TEMP_03
+SELECT 
+	a.RULE_CRITERIA_UID,
+    a.VALUE_ITEM,
+    b.CONTENT_ID VALUE_ITEM_ID
+FROM TEMP_02 a
+LEFT JOIN TT_TS_AIRLINES b on a.VALUE_ITEM = b.AIRLINE_CODE;
+
+-- if result return nothing so we can proceed
+select * from TEMP_03 where VALUE_ITEM_ID is null;
+
+-- =========================================================
+-- 5. Final valid value ID per rule
+-- =========================================================
+DROP TEMPORARY TABLE IF EXISTS TEMP_04;
+CREATE TEMPORARY TABLE TEMP_04
+SELECT 
+	a.RULE_CRITERIA_UID,
+    GROUP_CONCAT(
+        DISTINCT VALUE_ITEM_ID
+        ORDER BY VALUE_ITEM_ID
+        SEPARATOR ','
+    ) AS final_value_item_ids
+FROM TEMP_03 a
+where a.VALUE_ITEM_ID is not null
+group by a.RULE_CRITERIA_UID;
+
+-- if we have result from this query, we need to manually delete these rows
+select a.*
+from TT_TS_RULE_CRITERIA a
+left join TEMP_04 b on a.RULE_CRITERIA_UID = b.RULE_CRITERIA_UID
+where a.RULES_ATTR_UID = 1 and b.RULE_CRITERIA_UID is null;
+
+
+-- if CRITERIA_VALUE has only one value, then delete
+-- delete from TT_TS_RULE_CRITERIA where RULE_CRITERIA_UID in (114647,115554,123830);
+
+-- else, we need to update to delete the missing value from the comma separated values into CRITERIA_VALUE
+-- =========================================================
+-- 6. update the CRITERIA_VALUE 
+-- =========================================================
+
+update TT_TS_RULE_CRITERIA a
+inner join TEMP_04 b on a.RULE_CRITERIA_UID = b.RULE_CRITERIA_UID
+set a.CRITERIA_VALUE = b.final_value_item_ids;
+
+
+-- =========================================================
+select a.RULE_CRITERIA_UID, a.CRITERIA_VALUE, b.CRITERIA_VALUE
+from TT_TS_RULE_CRITERIA a
+inner join TT_TS_RULE_CRITERIA_BACKUP_ATTR_1_20260531 b on a.RULE_CRITERIA_UID = b.RULE_CRITERIA_UID;

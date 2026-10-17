@@ -1,0 +1,404 @@
+{
+  "supplier": "AirCairo",
+  "gdsPNR": "",
+  "bookingToken": "9TVHM4&krZUUEM2MDI5NzE0NzM4NUQ3MTAyMDI2galQQVgyfFNFRzGSpzExODAuMDCjRUdQ",
+  "tickets": {
+    "PAX2": {
+      "ticketStatus": "Booked",
+      "ticketNumber": "3812407236695",
+      "carrierCode": "SM"
+    }
+  },
+  "journeys": {
+    "FLT1": {
+      "origin": "CAI",
+      "destination": "JED",
+      "numberOfStops": 0,
+      "segmentRefIds": ["SEG1"],
+      "segmentTypeMap": {}
+    }
+  },
+  "flightSegments": {
+    "SEG1": {
+      "origin": "CAI",
+      "destination": "JED",
+      "departureDateTime": "2026-11-30T10:40:00",
+      "arrivalDateTime": "2026-11-30T13:45:00",
+      "departureTerminal": "1",
+      "arrivalTerminal": "N",
+      "flightTime": 185,
+      "operatingCarrierCode": "SM",
+      "operatingFlightNumber": "477",
+      "marketingCarrierCode": "SM",
+      "marketingFlightNumber": "477",
+      "equipment": "320"
+    }
+  },
+  "priceClasses": {
+    "PROMO": {
+      "priceClassName": "PROMOTION",
+      "fareDescription": "PublicFare",
+      "rulesAndPenalties": [
+        "50 USD CANCEL_AFTERDEPARTURE",
+        "50 USD CANCEL_BEFOREDEPARTURE",
+        "40 USD CHANGE_BEFOREDEPARTURE",
+        "60 USD CHANGE_NOSHOWFIRST",
+        "FEES APPLY SEATSELECTION",
+        "CarryOn | 1 HANDBAG 7Kg BAGGAGEALLOWANCE_CARRYON",
+        "Checked | 30 Kilogram | CheckedBag BAGGAGEALLOWANCE_CHECKED"
+      ]
+    }
+  },
+  "baggageDetails": {
+    "FBA1": {
+      "carryOnBaggage": "CarryOn | 1 Piece(s) | 7 KG | HANDBAG",
+      "checkInBaggage": "Checked | 30 Kilogram"
+    }
+  },
+  "passengersSelectedAncillaries": {
+    "PAX2": {
+      "segmentsSelectedAncillaries": {
+        "SEG1": [
+          {
+            "additionalServiceCategory": "Meal",
+            "ancillaryCode": "LBML_1",
+            "quantity": "1",
+            "price": {
+              "amount": 520.0,
+              "currency": "EGP"
+            },
+            "description": "HOT BEEF MEAL"
+          }
+        ]
+      },
+      "journyesSelectedAncillaries": {}
+    }
+  },
+  "passengersSelectedSeats": {
+    "PAX2": {
+      "setSegmentsSeats": null
+    }
+  },
+  "passengersList": {
+    "PAX2": {
+      "title": "MR",
+      "name": {
+        "first": "SERGIO",
+        "middle": null,
+        "last": "RAMOS"
+      },
+      "birthDate": "0001-01-01T00:00:00",
+      "gender": "Male",
+      "passengerTypeCode": "ADT",
+      "contactRefId": "CTCPAX2_1",
+      "travelDocument": null,
+      "parentPaxRefId": null,
+      "nationality": null,
+      "residentCountry": null,
+      "bspCommissionType": null,
+      "age": 2025
+    }
+  },
+  "contactsList": null,
+  "selectedOffer": {
+    "offerId": "216ad1c0-c1b4-4d23-8b2b-edebe7697efd",
+    "offerJourneys": ["FLT1"],
+    "passengerFareBreakdown": [
+      {
+        "paxTotalAmount": {
+          "amount": 8587.8,
+          "currency": "EGP"
+        },
+        "passengerTypeCode": "ADT",
+        "paxTotalTaxAmount": {
+          "amount": 3387.8,
+          "currency": "EGP"
+        },
+        "paxBaseAmount": {
+          "amount": 3500.0,
+          "currency": "EGP"
+        },
+        "taxesAndFees": [
+          {
+            "code": "YQ",
+            "amount": {
+              "amount": 120.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "YR",
+            "amount": {
+              "amount": 1322.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "EG",
+            "amount": {
+              "amount": 150.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "EQ",
+            "amount": {
+              "amount": 95.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "JK",
+            "amount": {
+              "amount": 100.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "O2",
+            "amount": {
+              "amount": 15.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "O9",
+            "amount": {
+              "amount": 48.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "Q7",
+            "amount": {
+              "amount": 2.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "QH",
+            "amount": {
+              "amount": 1180.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "S4",
+            "amount": {
+              "amount": 94.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "XK",
+            "amount": {
+              "amount": 150.0,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "XL",
+            "amount": {
+              "amount": 10.8,
+              "currency": "EGP"
+            }
+          },
+          {
+            "code": "E3",
+            "amount": {
+              "amount": 101.0,
+              "currency": "EGP"
+            }
+          }
+        ],
+        "segmentDetails": [
+          {
+            "segmentRefId": "SEG1",
+            "segmentType": null,
+            "priceClassRefId": "PROMO",
+            "priceClassType": null,
+            "baggageDetailsRefId": "FBA1",
+            "baggageDetailsType": null,
+            "cabinCode": "ECONOMY",
+            "rbd": "X"
+          }
+        ],
+        "discount": null
+      }
+    ],
+    "priceDetails": {
+      "totalAmount": {
+        "amount": 8587.8,
+        "currency": "EGP"
+      },
+      "totalTaxAmount": {
+        "amount": 3387.8,
+        "currency": "EGP"
+      },
+      "totalBaseAmount": {
+        "amount": 3500.0,
+        "currency": "EGP"
+      },
+      "taxesAndFees": [
+        {
+          "code": "YQ",
+          "amount": {
+            "amount": 120.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "YR",
+          "amount": {
+            "amount": 1322.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "EG",
+          "amount": {
+            "amount": 150.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "EQ",
+          "amount": {
+            "amount": 95.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "JK",
+          "amount": {
+            "amount": 100.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "O2",
+          "amount": {
+            "amount": 15.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "O9",
+          "amount": {
+            "amount": 48.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "Q7",
+          "amount": {
+            "amount": 2.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "QH",
+          "amount": {
+            "amount": 1180.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "S4",
+          "amount": {
+            "amount": 94.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "XK",
+          "amount": {
+            "amount": 150.0,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "XL",
+          "amount": {
+            "amount": 10.8,
+            "currency": "EGP"
+          }
+        },
+        {
+          "code": "E3",
+          "amount": {
+            "amount": 101.0,
+            "currency": "EGP"
+          }
+        }
+      ],
+      "discount": null,
+      "totalAncillariesAmount": {
+        "amount": 520.0,
+        "currency": "EGP"
+      },
+      "totalSelectedBundlesAmount": null,
+      "totalSelectedSeatsAmount": {
+        "amount": 1180.0,
+        "currency": "EGP"
+      },
+      "totalPassengersAncillaries": [
+        {
+          "ancillaryCode": "LBML_1",
+          "amount": {
+            "amount": 520.0,
+            "currency": "EGP"
+          }
+        }
+      ],
+      "totalSelectedSeats": [
+        {
+          "cellCode": "1A",
+          "price": {
+            "amount": 1180.0,
+            "currency": "EGP"
+          }
+        }
+      ],
+      "totalSelectedBundles": null
+    },
+    "haveBundles": false,
+    "canBeHeld": false,
+    "appliedDealCode": null,
+    "appliedPromotionCode": "",
+    "offerHasAncillary": false,
+    "offerHasSeat": false,
+    "offerJourneysMap": {},
+    "seatMapRequired": false,
+    "ancillaryRequired": false,
+    "baggageRequired": false,
+    "dealCodeApplied": false,
+    "promoted": false,
+    "mealRequired": false,
+    "Refundability": "UnKnown"
+  },
+  "emdTickets": {
+    "PAX2": [
+      {
+        "emdTicketNumber": "3814550670431",
+        "connectedTicketNumber": "3812407236695",
+        "issueDate": "2026-10-07T00:00:00",
+        "ticketStatus": "Booked",
+        "emdCancelationRules": null,
+        "ancillaryCode": "RQST",
+        "segmentRefIds": ["SEG1"]
+      },
+      {
+        "emdTicketNumber": "3814550670430",
+        "connectedTicketNumber": "3812407236695",
+        "issueDate": "2026-10-07T00:00:00",
+        "ticketStatus": "Booked",
+        "emdCancelationRules": null,
+        "ancillaryCode": "LBML",
+        "segmentRefIds": ["SEG1"]
+      }
+    ]
+  },
+  "pnr": "9TVHM4",
+  "bspCommissionApplied": null
+}

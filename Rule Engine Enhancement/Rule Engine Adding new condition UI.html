@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rule Engine – Condition Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-dark:  #1c3f6e;
+    --blue-main:  #2b6cb0;
+    --blue-btn:   #2b6cb0;
+    --blue-light: #ebf4ff;
+    --bg:         #eef1f5;
+    --card-bg:    #ffffff;
+    --border:     #d6e4f0;
+    --label:      #4a5568;
+    --text:       #2d3748;
+    --placeholder:#a0aec0;
+    --red:        #e53e3e;
+    --success:    #38a169;
+    --shadow:     0 1px 8px rgba(43,108,176,.08);
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOP NAV ── */
+  header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 64px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 10px; }
+  .logo-box {
+    background: var(--blue-dark);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .04em;
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+  .logo-sub { font-size: 11px; color: #6b7280; letter-spacing: .08em; text-transform: uppercase; }
+  .nav-menu { display: flex; gap: 4px; }
+  .nav-item {
+    padding: 8px 16px;
+    font-size: 13.5px;
+    color: #4b5563;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+    font-weight: 500;
+  }
+  .nav-item:hover { background: var(--blue-light); color: var(--blue-main); }
+  .nav-item.active { background: var(--blue-light); color: var(--blue-main); }
+  .user-info { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--blue-dark); cursor: pointer; }
+  .user-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--blue-main); color: #fff;
+    display: grid; place-items: center;
+    font-size: 13px; font-weight: 700;
+  }
+
+  /* ── PAGE ── */
+  main {
+    flex: 1;
+    padding: 36px 40px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .page-heading {
+    margin-bottom: 28px;
+  }
+  .page-heading h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    letter-spacing: -.01em;
+  }
+  .page-heading p {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  .breadcrumb {
+    font-size: 12.5px;
+    color: #9ca3af;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .breadcrumb span { color: var(--blue-main); font-weight: 500; cursor: pointer; }
+  .breadcrumb span:hover { text-decoration: underline; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 32px 36px 36px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-title .tag {
+    font-size: 11px;
+    background: var(--blue-light);
+    color: var(--blue-main);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  /* ── FORM GRID ── */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px 28px;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--label);
+    letter-spacing: .01em;
+  }
+  .field label .req { color: var(--red); margin-left: 2px; }
+
+  .field input,
+  .custom-select {
+    height: 44px;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: #fff;
+    transition: border-color .18s, box-shadow .18s;
+    outline: none;
+    width: 100%;
+  }
+  .field input::placeholder { color: var(--placeholder); }
+  .field input:focus,
+  .custom-select:focus {
+    border-color: var(--blue-main);
+    box-shadow: 0 0 0 3px rgba(30,93,190,.12);
+  }
+  .field input.error { border-color: var(--red); }
+  .field input.success { border-color: var(--success); }
+
+  /* custom select wrapper */
+  .select-wrap { position: relative; }
+  .select-wrap select {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 44px;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    padding: 0 40px 0 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: #fff;
+    cursor: pointer;
+    transition: border-color .18s, box-shadow .18s;
+    outline: none;
+    width: 100%;
+  }
+  .select-wrap select:focus {
+    border-color: var(--blue-main);
+    box-shadow: 0 0 0 3px rgba(30,93,190,.12);
+  }
+  .select-wrap select.placeholder-selected { color: var(--placeholder); }
+  .select-wrap::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #6b7280;
+    pointer-events: none;
+  }
+  .select-wrap select.error { border-color: var(--red); }
+
+  .field-hint {
+    font-size: 11.5px;
+    color: #9ca3af;
+    margin-top: 1px;
+  }
+  .field-error {
+    font-size: 11.5px;
+    color: var(--red);
+    margin-top: 1px;
+    display: none;
+  }
+  .field-error.visible { display: block; }
+
+  /* ── ACTIONS ── */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .btn {
+    height: 44px;
+    padding: 0 28px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: var(--blue-btn);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(37,99,200,.30);
+  }
+  .btn-primary:hover { background: #1a4fb5; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,200,.35); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-secondary {
+    background: #fff;
+    color: #374151;
+    border: 1.5px solid var(--border);
+  }
+  .btn-secondary:hover { background: #f9fafb; border-color: #9ca3af; }
+
+  /* ── PREVIEW BADGE ── */
+  .preview-row {
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: #f8faff;
+    border: 1px dashed #b6caf0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 54px;
+  }
+  .preview-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    white-space: nowrap;
+  }
+  .preview-expr {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--blue-dark);
+    background: #e8f0fb;
+    padding: 4px 12px;
+    border-radius: 5px;
+    letter-spacing: .01em;
+    transition: all .3s;
+  }
+  .preview-expr.empty { color: #9ca3af; background: transparent; font-family: inherit; font-size: 13px; letter-spacing: 0; }
+
+  /* ── TABLE ── */
+  .table-section { margin-top: 32px; }
+  .table-section h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .count-badge {
+    background: var(--blue-main);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 1px 8px;
+    min-width: 22px;
+    text-align: center;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead tr { background: #f1f5fb; }
+  th {
+    text-align: left;
+    padding: 11px 16px;
+    font-weight: 600;
+    color: #4b5563;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    border-bottom: 1.5px solid var(--border);
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f2f5;
+    color: var(--text);
+    vertical-align: middle;
+  }
+  tr:hover td { background: #f8faff; }
+  .type-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .pill-string  { background: #e0f2fe; color: #0369a1; }
+  .pill-number  { background: #fef9c3; color: #854d0e; }
+  .pill-date    { background: #f0fdf4; color: #166534; }
+  .op-chip {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 5px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .del-btn {
+    background: none; border: none; cursor: pointer;
+    color: #dc2626; font-size: 16px; padding: 2px 6px;
+    border-radius: 4px; transition: background .15s;
+  }
+  .del-btn:hover { background: #fee2e2; }
+  .empty-row td {
+    text-align: center;
+    color: #9ca3af;
+    padding: 28px;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: #111827;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all .3s;
+    pointer-events: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.success-toast { background: var(--success); }
+  .toast.error-toast   { background: #dc2626; }
+
+  footer {
+    text-align: center;
+    padding: 18px;
+    font-size: 12px;
+    color: #9ca3af;
+    border-top: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <div class="logo-box">NDC</div>
+    <div>
+      <div style="font-weight:700;font-size:13px;color:#1a3a6b;letter-spacing:.01em">Egypt</div>
+      <div class="logo-sub">National Distribution Channel</div>
+    </div>
+  </div>
+  <nav class="nav-menu">
+    <div class="nav-item">Dashboard</div>
+    <div class="nav-item active">Rule Engine</div>
+    <div class="nav-item">Attributes</div>
+    <div class="nav-item">Reports</div>
+  </nav>
+  <div class="user-info">
+    <div class="user-avatar">ES</div>
+    E.Saady ▾
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div class="breadcrumb">
+    <span>Rule Engine</span> › <span>Condition Builder</span>
+  </div>
+  <div class="page-heading">
+    <h1>Rule Condition Builder</h1>
+    <p>Define new expression conditions for the Drools rule engine. Each condition is resolved at runtime using operator &amp; data type — no code changes required.</p>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="card">
+    <div class="card-title">
+      ➕ Add New Condition
+      <span class="tag">DB-Driven</span>
+    </div>
+
+    <div class="form-grid">
+      <!-- Condition Name -->
+      <div class="field">
+        <label for="condName">Condition Name <span class="req">*</span></label>
+        <input type="text" id="condName" placeholder="e.g. supplier, flightNo, rbd" autocomplete="off" />
+        <span class="field-hint">Maps to the attribute column in TT_RULES_ATTR_MAP</span>
+        <span class="field-error" id="condNameErr">Condition name is required</span>
+      </div>
+
+      <!-- Data Type -->
+      <div class="field">
+        <label for="dataType">Data Type <span class="req">*</span></label>
+        <div class="select-wrap">
+          <select id="dataType">
+            <option value="" disabled selected>Select data type</option>
+            <option value="String">String</option>
+            <option value="Number">Number</option>
+            <option value="Date">Date</option>
+          </select>
+        </div>
+        <span class="field-hint">Determines how values are formatted in the expression</span>
+        <span class="field-error" id="dataTypeErr">Data type is required</span>
+      </div>
+
+      <!-- Condition Operator -->
+      <div class="field">
+        <label for="condOp">Condition Operator <span class="req">*</span></label>
+        <div class="select-wrap">
+          <select id="condOp">
+            <option value="" disabled selected>Select operator</option>
+            <option value="IN">IN</option>
+            <option value="NOT IN">NOT IN</option>
+            <option value="EQUALS">EQUALS</option>
+            <option value="LESS THAN">LESS THAN</option>
+            <option value="GREATER THAN">GREATER THAN</option>
+            <option value="BETWEEN">BETWEEN</option>
+          </select>
+        </div>
+        <span class="field-hint">Defines the logical operation used in the Drools condition</span>
+        <span class="field-error" id="condOpErr">Operator is required</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+      <button class="btn btn-secondary" onclick="resetForm()">Clear</button>
+      <button class="btn btn-primary" onclick="submitCondition()">
+        <span>Save Condition</span>
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer>Copyright © Wonder Travel 2024. All Rights Reserved. RC5</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  function validate() {
+    let ok = true;
+    const name = document.getElementById('condName').value.trim();
+    const dt   = document.getElementById('dataType').value;
+    const op   = document.getElementById('condOp').value;
+    toggle('condNameErr', !name);
+    toggle('dataTypeErr', !dt);
+    toggle('condOpErr',   !op);
+    if (!name || !dt || !op) ok = false;
+    return ok;
+  }
+
+  function toggle(id, show) {
+    document.getElementById(id).classList.toggle('visible', show);
+  }
+
+  function submitCondition() {
+    if (!validate()) { showToast('Please fill in all required fields.', 'error'); return; }
+    showToast('Condition saved successfully!', 'success');
+    resetForm();
+  }
+
+  function resetForm() {
+    document.getElementById('condName').value = '';
+    document.getElementById('dataType').value = '';
+    document.getElementById('condOp').value = '';
+    ['condNameErr','dataTypeErr','condOpErr'].forEach(id => toggle(id, false));
+  }
+
+  function showToast(msg, type='default') {
+    const t = document.getElementById('toast');
+    t.textContent = (type === 'success' ? '✓ ' : type === 'error' ? '✕ ' : '') + msg;
+    t.className = `toast show ${type === 'success' ? 'success-toast' : type === 'error' ? 'error-toast' : ''}`;
+    setTimeout(() => { t.className = 'toast'; }, 3000);
+  }
+</script>
+</body>
+</html>

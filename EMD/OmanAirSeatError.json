@@ -1,0 +1,18 @@
+{
+  "Status": 409,
+  "TransactionId": "tw2-7ffD-8ax_ErtHSdh_8jutoiKOtuYOustcMqe",
+  "ErrorCode": "NDC-INT-UNC-Z9999",
+  "ErrorMessage": "NDC-INT-UNC-Z9999",
+  "Context": [
+    {
+      "Name": "102",
+      "Value": "Unable to process"
+    },
+    {
+      "Name": "102",
+      "Value": "Unable to process"
+    }
+  ],
+  "OriginalSupplierRequest": "<SOAP-ENV:Envelope xmlns:ns1=\"xxs\" xmlns:t=\"xxs1\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <SOAP-ENV:Header>\n    <t:TransactionControl>\n      <tc>\n        <app version=\"5.0.0\" language=\"en-US\">SOAP</app>\n        <iden u=\"WYNDCEGY\" p=\"NDC2020wy123\" pseudocity=\"BUA5\" agt=\"WYNDCEGY\" agtpwd=\"NDC2020wy123\" agy=\"90200305\" />\n        <agent user=\"sprkadmin\" />\n        <trace>BUA5_WY</trace>\n        <script engine=\"FLXDM\" name=\"wondertravel_WYAirline-dispatch.flxdm\" />\n      </tc>\n    </t:TransactionControl>\n  </SOAP-ENV:Header>\n  <SOAP-ENV:Body>\n    <ns1:XXTransaction>\n      <REQ>\n        <SeatAvailabilityRQ TimeStamp=\"2026-10-07T08:18:16.9742161Z\" Target=\"Test\" Version=\"17.2\" TransactionIdentifier=\"azi3AI8QCE6saf2cvteSIzjFJ0Vh9arV\">\n          <Document id=\"document\" />\n          <Party>\n            <Sender>\n              <TravelAgencySender>\n                <PseudoCity Owner=\"BUA5\">BUA5</PseudoCity>\n                <AgencyID Owner=\"BUA5\">BUA5</AgencyID>\n              </TravelAgencySender>\n            </Sender>\n            <Participants p9:nil=\"true\" xmlns:p9=\"http://www.w3.org/2001/XMLSchema-instance\" />\n            <Recipient p9:nil=\"true\" xmlns:p9=\"http://www.w3.org/2001/XMLSchema-instance\" />\n          </Party>\n          <Query>\n            <Offer OfferID=\"PF0071E8D-1E35-4915-AB81-1\" Owner=\"WY\" ResponseID=\"PC210D8CC-8366-4286-BEDE\" />\n          </Query>\n          <DataLists>\n            <PassengerList>\n              <Passenger PassengerID=\"T1\">\n                <PTC>ADT</PTC>\n                <Individual>\n                  <NameTitle>MR</NameTitle>\n                  <GivenName>samir</GivenName>\n                  <Surname>mohsen</Surname>\n                </Individual>\n              </Passenger>\n            </PassengerList>\n          </DataLists>\n        </SeatAvailabilityRQ>\n      </REQ>\n    </ns1:XXTransaction>\n  </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>",
+  "OriginalSupplierResponse": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:xsd=\"http://www.w3.org/1999/XMLSchema/\" xmlns:xsi=\"http://www.w3.org/1999/XMLSchema/instance/\"><SOAP-ENV:Header><t:Transaction xmlns:t=\"xxs\"><tc><pid>FLX DMServer TC1 (8800/3070) STG cb34</pid><tid>00F52F17-2CAAF5F190</tid><dt>2026-10-07T08:18:18</dt></tc></t:Transaction></SOAP-ENV:Header><SOAP-ENV:Body><ns1:XXTransactionResponse xmlns:ns1=\"xxs\"><RSP><SeatAvailabilityRS Version=\"17.2\" TransactionIdentifier=\"azi3AI8QCE6saf2cvteSIzjFJ0Vh9arV\" Target=\"Test\">\r\n\t<Errors>\r\n\t\t<Error Type=\"486\" Code=\"102\" Owner=\"WY\" NodeList=\"1\">Unable to process</Error>\r\n\t\t<Error Type=\"486\" Code=\"102\" Owner=\"WY\" NodeList=\"2\">Unable to process</Error>\r\n\t</Errors>\r\n</SeatAvailabilityRS>\r\n</RSP></ns1:XXTransactionResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+}

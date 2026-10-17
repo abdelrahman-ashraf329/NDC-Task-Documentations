@@ -1,0 +1,429 @@
+{
+  "supplier": "AirCairo",
+  "offerId": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH&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",
+  "responseId": "eda76660-0845-4714-889a-d0aebfa6905e",
+  "journeys": {
+    "JRN1": {
+      "origin": "CAI",
+      "destination": "JED",
+      "numberOfStops": 0,
+      "segmentRefIds": ["SEG7"],
+      "segmentTypeMap": {}
+    }
+  },
+  "flightSegments": {
+    "SEG7": {
+      "origin": "CAI",
+      "destination": "JED",
+      "departureDateTime": "2026-11-30T10:40:00",
+      "arrivalDateTime": "2026-11-30T13:45:00",
+      "departureTerminal": "1",
+      "arrivalTerminal": "N",
+      "flightTime": 185,
+      "operatingCarrierCode": "SM",
+      "operatingFlightNumber": "477",
+      "marketingCarrierCode": "SM",
+      "marketingFlightNumber": "477",
+      "equipment": "320"
+    }
+  },
+  "segmentsAncillariesDetails": {
+    "SEG7": [
+      {
+        "name": "R1?SRV8",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-9",
+        "price": {
+          "amount": 567.0,
+          "currency": "EGP"
+        },
+        "description": "Hindu Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV9",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-10",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Hot Beef Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV10",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-11",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Cold Roast Beef Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV11",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-12",
+        "price": {
+          "amount": 498.0,
+          "currency": "EGP"
+        },
+        "description": "Basmatic Rice And Beef Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV12",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-13",
+        "price": {
+          "amount": 472.0,
+          "currency": "EGP"
+        },
+        "description": "Bland Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV13",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-14",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Hot Chicken Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV14",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-15",
+        "price": {
+          "amount": 567.0,
+          "currency": "EGP"
+        },
+        "description": "Meal Childrens Chicken",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV15",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-16",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Penne Pasta And Chikcken Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV16",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-17",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Pasta With Cheese And Chicken",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV17",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-18",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Seafood Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV18",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-19",
+        "price": {
+          "amount": 708.0,
+          "currency": "EGP"
+        },
+        "description": "Seafood Salamon Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV19",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-20",
+        "price": {
+          "amount": 567.0,
+          "currency": "EGP"
+        },
+        "description": "Gluten Intoerant Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV21",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-22",
+        "price": {
+          "amount": 425.0,
+          "currency": "EGP"
+        },
+        "description": "Fruit Platter Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV22",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-23",
+        "price": {
+          "amount": 567.0,
+          "currency": "EGP"
+        },
+        "description": "Low Fat Meal",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV23",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-24",
+        "price": {
+          "amount": 425.0,
+          "currency": "EGP"
+        },
+        "description": "Breakfast Cold Beef Chicken",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV24",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-25",
+        "price": {
+          "amount": 472.0,
+          "currency": "EGP"
+        },
+        "description": "Breakfast Meal With Crepe",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV25",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-27",
+        "price": {
+          "amount": 472.0,
+          "currency": "EGP"
+        },
+        "description": "Mashed Potato Breakfast",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV26",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-28",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Diabetic Meal With Omelet",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV27",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-29",
+        "price": {
+          "amount": 378.0,
+          "currency": "EGP"
+        },
+        "description": "Vegetarian Meal With Pasta",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV28",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-30",
+        "price": {
+          "amount": 378.0,
+          "currency": "EGP"
+        },
+        "description": "Vegetarian Meal With Crepe",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV29",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-31",
+        "price": {
+          "amount": 520.0,
+          "currency": "EGP"
+        },
+        "description": "Diabetic Meal With Chicken",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      },
+      {
+        "name": "R1?SRV42",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-45",
+        "price": {
+          "amount": 0.0,
+          "currency": "EGP"
+        },
+        "description": "Meal On Board Not Required",
+        "availableCount": 1,
+        "ancillaryCategory": "Meal"
+      }
+    ]
+  },
+  "journeysAncillariesDetails": {
+    "JRN1": [
+      {
+        "name": "R1?SRV1",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-2",
+        "price": {
+          "amount": 95.0,
+          "currency": "EGP"
+        },
+        "description": "One Kilogram Baggage",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV2",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-3",
+        "price": {
+          "amount": 3776.0,
+          "currency": "EGP"
+        },
+        "description": "Golf Equipment",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV3",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-4",
+        "price": {
+          "amount": 3068.0,
+          "currency": "EGP"
+        },
+        "description": "Ski Equipment",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV4",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-5",
+        "price": {
+          "amount": 3776.0,
+          "currency": "EGP"
+        },
+        "description": "Bicycle",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV5",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-6",
+        "price": {
+          "amount": 3776.0,
+          "currency": "EGP"
+        },
+        "description": "Scuba Equipment",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV6",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-7",
+        "price": {
+          "amount": 55.0,
+          "currency": "EGP"
+        },
+        "description": "Excess Fees",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV7",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-8",
+        "price": {
+          "amount": 3776.0,
+          "currency": "EGP"
+        },
+        "description": "Windsurf Equipment",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV30",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-32",
+        "price": {
+          "amount": 3776.0,
+          "currency": "EGP"
+        },
+        "description": "Pet In Cabin",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      },
+      {
+        "name": "R1?SRV40",
+        "code": "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-43",
+        "price": {
+          "amount": 0.0,
+          "currency": "EGP"
+        },
+        "description": "Request To Transport Fragile Baggage",
+        "availableCount": 1,
+        "ancillaryCategory": "Baggage"
+      }
+    ]
+  },
+  "isFareCheckRequired": false,
+  "passengersAncillariesAvailabilty": {
+    "PAX1": {
+      "passengerTypeCode": "ADT",
+      "name": {
+        "first": "Sergio",
+        "middle": "",
+        "last": "Ramos"
+      },
+      "segmentAncillariesAvailability": {
+        "SEG7": [
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-9",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-10",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-11",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-12",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-13",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-14",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-15",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-16",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-17",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-18",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-19",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-20",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-22",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-23",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-24",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-25",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-27",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-28",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-29",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-30",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-31",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-45"
+        ]
+      },
+      "journeyAncillariesAvailability": {
+        "JRN1": [
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-2",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-3",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-4",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-5",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-6",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-7",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-8",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-32",
+          "1H2SMZ_FYWNPG9R6JTW838PR022G1553QVH-43"
+        ]
+      }
+    }
+  }
+}

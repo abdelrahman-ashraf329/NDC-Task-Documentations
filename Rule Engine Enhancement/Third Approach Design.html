@@ -1,0 +1,1351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Discount</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 14px;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #fff;
+        color: #1e293b;
+        min-height: 100vh;
+        padding: 2rem 2.5rem 4rem;
+      }
+
+      /* ── Typography ── */
+      .page-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #0f172a;
+        margin-bottom: 1.75rem;
+      }
+      .section-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #0f172a;
+        margin-bottom: 1.25rem;
+      }
+      .divider {
+        height: 1px;
+        background: #e2e8f0;
+        margin: 2rem 0;
+      }
+
+      /* ── Form layout ── */
+      .form-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .form-grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr auto;
+        gap: 1rem;
+        align-items: end;
+      }
+      .form-grid-fare {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .fld {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .fld label {
+        font-size: 13px;
+        font-weight: 500;
+        color: #374151;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+      .fld label .req {
+        color: #dc2626;
+        font-weight: 600;
+      }
+
+      .fld input,
+      .fld select,
+      .fld textarea {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 13px;
+        font-family: 'Inter', sans-serif;
+        color: #1e293b;
+        background: #fff;
+        outline: none;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
+        width: 100%;
+      }
+      .fld input:focus,
+      .fld select:focus,
+      .fld textarea:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px #eff6ff;
+      }
+      .fld input::placeholder,
+      .fld textarea::placeholder {
+        color: #94a3b8;
+      }
+      .fld textarea {
+        resize: vertical;
+        min-height: 110px;
+      }
+
+      /* Date input wrapper */
+      .date-wrap {
+        position: relative;
+        display: flex;
+      }
+      .date-wrap input {
+        border-radius: 6px 0 0 6px;
+        border-right: none;
+        flex: 1;
+      }
+      .date-wrap input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px #eff6ff;
+        z-index: 1;
+      }
+      .date-btn {
+        width: 40px;
+        height: 38px;
+        background: #2563eb;
+        border: 1px solid #2563eb;
+        border-radius: 0 6px 6px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #fff;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .date-btn:hover {
+        background: #1d4ed8;
+      }
+
+      /* ── Selects with chevron ── */
+      .sel-wrap {
+        position: relative;
+      }
+      .sel-wrap select {
+        appearance: none;
+        padding-right: 2rem;
+        cursor: pointer;
+      }
+      .sel-wrap::after {
+        content: '▾';
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 11px;
+        color: #94a3b8;
+        pointer-events: none;
+      }
+
+      /* ── Conditions row ── */
+      .conditions-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #0f172a;
+        margin-bottom: 0.875rem;
+      }
+      .conditions-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .conditions-row .sel-wrap {
+        flex: 2;
+      }
+      .conditions-row .sel-wrap.op {
+        flex: 1.2;
+      }
+      .cond-value {
+        flex: 2.5;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 13px;
+        font-family: 'Inter', sans-serif;
+        color: #1e293b;
+        background: #fff;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .cond-value::placeholder {
+        color: #94a3b8;
+      }
+      .cond-value:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px #eff6ff;
+      }
+
+      /* Selected tags inside value field */
+      .cond-tags {
+        flex: 2.5;
+        min-height: 38px;
+        padding: 0.3rem 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        background: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        align-items: center;
+        cursor: pointer;
+        transition: border-color 0.15s;
+      }
+      .cond-tags:hover {
+        border-color: #94a3b8;
+      }
+      .cond-tags.active {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px #eff6ff;
+      }
+      .cond-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-radius: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #1d4ed8;
+        padding: 2px 6px;
+        white-space: nowrap;
+      }
+      .cond-tag .tag-arrow {
+        opacity: 0.5;
+        font-size: 10px;
+      }
+      .cond-tag .tag-id {
+        background: #dbeafe;
+        padding: 1px 4px;
+        border-radius: 2px;
+        font-size: 11px;
+      }
+      .cond-placeholder {
+        font-size: 13px;
+        color: #94a3b8;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #d1d5db;
+        border-radius: 50%;
+        background: #fff;
+        color: #64748b;
+        cursor: pointer;
+        font-size: 15px;
+        transition: all 0.15s;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        background: #f1f5f9;
+        border-color: #94a3b8;
+        color: #1e293b;
+      }
+
+      /* ── Radio / Checkbox ── */
+      .radio-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .radio-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        color: #374151;
+      }
+      .radio-item input[type='radio'] {
+        width: 16px;
+        height: 16px;
+        accent-color: #2563eb;
+        cursor: pointer;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        color: #374151;
+      }
+      .check-item input[type='checkbox'] {
+        width: 15px;
+        height: 15px;
+        accent-color: #2563eb;
+        cursor: pointer;
+      }
+
+      /* ── Fare mode section ── */
+      .fare-section {
+        border-top: 1px solid #e2e8f0;
+        padding-top: 1.25rem;
+        margin-top: 0.5rem;
+      }
+      .fare-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+
+      /* ── Buttons ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.55rem 1.25rem;
+        border-radius: 6px;
+        font-size: 13px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .btn-blue {
+        background: #2563eb;
+        color: #fff;
+      }
+      .btn-blue:hover {
+        background: #1d4ed8;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      }
+      .btn-outline {
+        background: #fff;
+        color: #374151;
+        border: 1px solid #d1d5db;
+      }
+      .btn-outline:hover {
+        background: #f9fafb;
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      /* ── OVERLAY ── */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+      .overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      /* ── ATTRIBUTES MODAL ── */
+      .attr-modal {
+        background: #fff;
+        border-radius: 8px;
+        width: 680px;
+        max-width: 95vw;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        transform: scale(0.97) translateY(8px);
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+        max-height: 90vh;
+      }
+      .overlay.open .attr-modal {
+        transform: scale(1) translateY(0);
+      }
+
+      .attr-modal-head {
+        padding: 1.25rem 1.5rem 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+      }
+      .attr-modal-head h2 {
+        font-size: 17px;
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .modal-x {
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 2px 5px;
+        border-radius: 4px;
+        line-height: 1;
+        transition: background 0.15s;
+      }
+      .modal-x:hover {
+        background: #f1f5f9;
+        color: #1e293b;
+      }
+
+      .attr-modal-body {
+        display: flex;
+        gap: 0;
+        flex: 1;
+        overflow: hidden;
+      }
+
+      /* Available panel */
+      .avail-panel {
+        flex: 1;
+        border-right: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        max-height: 460px;
+      }
+      .panel-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #0f172a;
+        padding: 0.875rem 1rem 0.625rem;
+        flex-shrink: 0;
+      }
+
+      .avail-search {
+        padding: 0.5rem 0.875rem;
+        border-bottom: 1px solid #e2e8f0;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .avail-search input {
+        width: 100%;
+        padding: 0.4rem 0.75rem 0.4rem 1.875rem;
+        border: 1px solid #d1d5db;
+        border-radius: 5px;
+        font-size: 12.5px;
+        font-family: 'Inter', sans-serif;
+        color: #1e293b;
+        background: #f8fafc;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .avail-search input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 2px #eff6ff;
+      }
+      .avail-search input::placeholder {
+        color: #94a3b8;
+      }
+      .srch-ico-sm {
+        position: absolute;
+        left: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: #94a3b8;
+        pointer-events: none;
+      }
+
+      .avail-list {
+        overflow-y: auto;
+        flex: 1;
+      }
+
+      .avail-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 0.55rem 1rem;
+        cursor: pointer;
+        transition: background 0.12s;
+        border-bottom: 1px solid #f8fafc;
+      }
+      .avail-item:hover {
+        background: #f8fafc;
+      }
+      .avail-item.checked {
+        background: #eff6ff;
+      }
+      .avail-item input[type='checkbox'] {
+        width: 15px;
+        height: 15px;
+        accent-color: #2563eb;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      /* The key part — code → ID badge */
+      .code-id-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .code-part {
+        color: #1e293b;
+      }
+      .arrow-part {
+        color: #94a3b8;
+        font-size: 10px;
+        font-weight: 400;
+      }
+      .id-part {
+        background: #2563eb;
+        color: #fff;
+        padding: 1px 6px;
+        border-radius: 3px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .avail-item.checked .code-part {
+        color: #1d4ed8;
+      }
+      .avail-item.checked .id-part {
+        background: #1d4ed8;
+      }
+
+      .avail-item-desc {
+        font-size: 12px;
+        color: #64748b;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* Middle buttons */
+      .mid-btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 0.75rem;
+        flex-shrink: 0;
+      }
+      .mid-btn {
+        padding: 0.45rem 0.875rem;
+        border-radius: 5px;
+        font-size: 12.5px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid #d1d5db;
+        background: #fff;
+        color: #374151;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .mid-btn:hover {
+        background: #f1f5f9;
+        border-color: #94a3b8;
+      }
+      .mid-btn.primary {
+        background: #2563eb;
+        color: #fff;
+        border-color: #2563eb;
+      }
+      .mid-btn.primary:hover {
+        background: #1d4ed8;
+      }
+
+      /* Selected panel */
+      .sel-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        max-height: 460px;
+      }
+
+      .sel-search {
+        padding: 0.875rem 1rem 0.5rem;
+        flex-shrink: 0;
+      }
+      .sel-search input {
+        width: 100%;
+        padding: 0.4rem 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 5px;
+        font-size: 12.5px;
+        font-family: 'Inter', sans-serif;
+        color: #1e293b;
+        background: #fff;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .sel-search input:focus {
+        border-color: #2563eb;
+      }
+      .sel-search input::placeholder {
+        color: #94a3b8;
+      }
+
+      .sel-list-wrap {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0.25rem 1rem 0.5rem;
+        background: #f8fafc;
+        margin: 0 0.75rem 0.5rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+      }
+      .sel-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.45rem 0.25rem;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 12.5px;
+      }
+      .sel-item:last-child {
+        border-bottom: none;
+      }
+      .sel-item input[type='checkbox'] {
+        width: 14px;
+        height: 14px;
+        accent-color: #2563eb;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      /* Selected item also shows code → ID */
+      .sel-code-id {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .sel-code-id .s-code {
+        color: #1d4ed8;
+      }
+      .sel-code-id .s-arrow {
+        color: #94a3b8;
+        font-size: 10px;
+        font-weight: 400;
+      }
+      .sel-code-id .s-id {
+        background: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+        padding: 1px 5px;
+        border-radius: 3px;
+        font-size: 11px;
+      }
+
+      .sel-all-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.45rem 0.25rem;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 12.5px;
+        color: #374151;
+        cursor: pointer;
+      }
+      .sel-all-item input[type='checkbox'] {
+        width: 14px;
+        height: 14px;
+        accent-color: #2563eb;
+        cursor: pointer;
+      }
+
+      .sel-required {
+        font-size: 11.5px;
+        color: #dc2626;
+        padding: 0.25rem 1rem 0.5rem;
+        flex-shrink: 0;
+        display: none;
+      }
+      .sel-required.show {
+        display: block;
+      }
+
+      .attr-modal-foot {
+        padding: 0.875rem 1.5rem;
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        flex-shrink: 0;
+        background: #f8fafc;
+      }
+
+      /* ── Toast ── */
+      .toasts {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        z-index: 200;
+      }
+      .toast {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.7rem 1rem;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        animation: tin 0.2s ease;
+        min-width: 220px;
+      }
+      .toast-ok {
+        background: #166534;
+        color: #fff;
+      }
+      .toast-err {
+        background: #991b1b;
+        color: #fff;
+      }
+      @keyframes tin {
+        from {
+          opacity: 0;
+          transform: translateX(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-title">Add Discount</div>
+
+    <!-- ── Discount info ── -->
+    <div class="form-grid-2">
+      <div class="fld">
+        <label>Discount Name <span class="req">*</span></label>
+        <input placeholder="name" />
+      </div>
+      <div class="fld">
+        <label>Discount Description <span class="req">*</span></label>
+        <textarea placeholder="Discount Description"></textarea>
+      </div>
+    </div>
+
+    <div class="form-grid-2">
+      <div class="fld">
+        <label>Validity Period From <span class="req">*</span></label>
+        <div class="date-wrap">
+          <input type="text" placeholder="MM/dd/yyyy" id="dateFrom" />
+          <div
+            class="date-btn"
+            onclick="document.getElementById('dateFrom').focus()"
+          >
+            📅
+          </div>
+        </div>
+      </div>
+      <div class="fld">
+        <label>Validity Period To <span class="req">*</span></label>
+        <div class="date-wrap">
+          <input type="text" placeholder="MM/dd/yyyy" id="dateTo" />
+          <div
+            class="date-btn"
+            onclick="document.getElementById('dateTo').focus()"
+          >
+            📅
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ── Add Criteria ── -->
+    <div class="section-title">Add Criteria</div>
+
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr auto;
+        gap: 1rem;
+        align-items: end;
+        margin-bottom: 1.5rem;
+      "
+    >
+      <div class="fld">
+        <label>Country POS <span class="req">*</span></label>
+        <div class="sel-wrap">
+          <select>
+            <option value="">Select</option>
+            <option>Egypt</option>
+            <option>Saudi Arabia</option>
+            <option>UAE</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld">
+        <label>Branch <span class="req">*</span></label>
+        <div class="sel-wrap">
+          <select>
+            <option value="">Select</option>
+            <option>Cairo</option>
+            <option>Riyadh</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld">
+        <label>Agency</label>
+        <div class="sel-wrap">
+          <select>
+            <option value="">Select</option>
+            <option>Agency A</option>
+            <option>Agency B</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld" style="padding-bottom: 2px">
+        <label style="visibility: hidden">_</label>
+        <label class="check-item" style="height: 38px; align-items: center">
+          <input type="checkbox" /> <span>Is Restricted Agency</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Conditions -->
+    <div class="conditions-label">Conditions :</div>
+
+    <div class="conditions-row">
+      <!-- Attribute dropdown -->
+      <div class="sel-wrap" style="flex: 2">
+        <select id="attrSelect" onchange="onAttrChange()">
+          <option value="">Select Attribute</option>
+          <option value="AIRLINE_CODE">Airline_Code</option>
+          <option value="SUPPLIER">Supplier</option>
+          <option value="COUNTRY">Country</option>
+        </select>
+      </div>
+
+      <!-- Operator dropdown -->
+      <div class="sel-wrap op">
+        <select id="opSelect">
+          <option value="">Select...</option>
+          <option value="in">IN</option>
+          <option value="eq">==</option>
+          <option value="neq">!=</option>
+        </select>
+      </div>
+
+      <!-- Values display — shows selected tags with code → ID -->
+      <div class="cond-tags" id="condTags" onclick="openAttrModal()">
+        <span class="cond-placeholder" id="condPlaceholder">Values</span>
+      </div>
+
+      <!-- Search icon — opens Attributes modal -->
+      <button
+        class="icon-btn"
+        onclick="openAttrModal()"
+        title="Browse attribute values"
+      >
+        🔍
+      </button>
+
+      <!-- Add row button -->
+      <button
+        class="icon-btn"
+        onclick="addConditionRow()"
+        title="Add condition"
+      >
+        ＋
+      </button>
+    </div>
+
+    <!-- Extra condition rows appended here -->
+    <div id="extraRows"></div>
+
+    <div class="divider"></div>
+
+    <!-- ── Fare mode ── -->
+    <div class="section-title">Fare mode</div>
+
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+      "
+    >
+      <div class="radio-row" style="margin: 0">
+        <label class="radio-item"
+          ><input type="radio" name="fareMode" value="all" checked /> All</label
+        >
+        <label class="radio-item"
+          ><input type="radio" name="fareMode" value="bypax" /> By Pax</label
+        >
+      </div>
+      <label class="check-item">
+        <input type="checkbox" /> <span>Apply Per Segment</span>
+      </label>
+    </div>
+
+    <div class="fare-section">
+      <div class="form-grid-fare">
+        <div class="fld">
+          <label>FARE TYPE <span class="req">*</span></label>
+          <div class="sel-wrap">
+            <select>
+              <option value="">Select</option>
+              <option>Published</option>
+              <option>Net</option>
+              <option>Cat35</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld">
+          <label>AMOUNT TYPE <span class="req">*</span></label>
+          <div class="sel-wrap">
+            <select>
+              <option value="">Select</option>
+              <option>Fixed</option>
+              <option>Percentage</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld">
+          <label>VALUE <span class="req">*</span></label>
+          <input type="number" value="0.00" step="0.01" min="0" />
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <button class="btn btn-outline">Cancel</button>
+      <button class="btn btn-blue">Send For Approval</button>
+    </div>
+
+    <!-- ════ ATTRIBUTES MODAL ════ -->
+    <div class="overlay" id="attrOverlay">
+      <div class="attr-modal">
+        <div class="attr-modal-head">
+          <h2>Attributes</h2>
+          <button class="modal-x" onclick="closeAttrModal()">✕</button>
+        </div>
+
+        <div class="attr-modal-body">
+          <!-- Available panel -->
+          <div class="avail-panel">
+            <div class="panel-label">Available</div>
+            <div class="avail-search">
+              <span class="srch-ico-sm">🔍</span>
+              <input
+                id="availSearch"
+                placeholder="Search…"
+                oninput="filterAvail()"
+              />
+            </div>
+            <div class="avail-list" id="availList"></div>
+          </div>
+
+          <!-- Add / Remove buttons -->
+          <div class="mid-btns">
+            <button class="mid-btn primary" onclick="addSelected()">Add</button>
+            <button class="mid-btn" onclick="removeSelected()">Remove</button>
+          </div>
+
+          <!-- Selected panel -->
+          <div class="sel-panel">
+            <div class="panel-label">Selected</div>
+            <div class="sel-search">
+              <input
+                id="selSearch"
+                placeholder="Search…"
+                oninput="filterSel()"
+              />
+            </div>
+            <div class="sel-list-wrap">
+              <div class="sel-all-item" id="selAllRow">
+                <input
+                  type="checkbox"
+                  id="selAllChk"
+                  onchange="toggleSelAll()"
+                />
+                <span>All</span>
+              </div>
+              <div id="selList"></div>
+            </div>
+            <div class="sel-required" id="selRequired">Required</div>
+          </div>
+        </div>
+
+        <div class="attr-modal-foot">
+          <button class="btn btn-blue" onclick="saveAttrSelection()">
+            Save
+          </button>
+          <button class="btn btn-outline" onclick="closeAttrModal()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toasts" id="toasts"></div>
+
+    <script>
+      // ── DICTIONARY — string value → integer ID ────────────────────────────
+      const DICT = {
+        AIRLINE_CODE: [
+          { id: 1, v: '2F', d: 'Airline 2F — domestic' },
+          { id: 2, v: '2A', d: 'Airline 2A — regional' },
+          { id: 3, v: '2T', d: 'Airline 2T — charter' },
+          { id: 4, v: '3E', d: 'Airline 3E — low cost' },
+          { id: 5, v: '3F', d: 'Airline 3F — international' },
+          { id: 6, v: '3G', d: 'Airline 3G — cargo' },
+          { id: 7, v: 'MS', d: 'EgyptAir' },
+          { id: 8, v: 'EK', d: 'Emirates Airlines' },
+          { id: 9, v: 'QR', d: 'Qatar Airways' },
+          { id: 10, v: 'ET', d: 'Ethiopian Airlines' },
+          { id: 11, v: 'SV', d: 'Saudi Arabian Airlines' },
+          { id: 12, v: 'LH', d: 'Lufthansa' },
+          { id: 13, v: 'BA', d: 'British Airways' },
+          { id: 14, v: 'AF', d: 'Air France' },
+          { id: 15, v: 'TK', d: 'Turkish Airlines' },
+          { id: 16, v: 'RJ', d: 'Royal Jordanian' },
+          { id: 17, v: 'WY', d: 'Oman Air' },
+          { id: 18, v: 'FZ', d: 'flydubai' },
+          { id: 19, v: 'G9', d: 'Air Arabia' },
+        ],
+        SUPPLIER: [
+          { id: 1, v: 'Galileo', d: 'Galileo GDS' },
+          { id: 2, v: 'Sabre', d: 'Sabre GDS' },
+          { id: 3, v: 'Amadeus', d: 'Amadeus GDS' },
+          { id: 4, v: 'Worldspan', d: 'Worldspan' },
+          { id: 5, v: 'Apollo', d: 'Apollo GDS' },
+          { id: 6, v: 'Abacus', d: 'Abacus GDS' },
+          { id: 7, v: 'Sirena', d: 'Sirena Travel' },
+          { id: 8, v: 'Farelogix', d: 'Farelogix NDC' },
+        ],
+        COUNTRY: [
+          { id: 1, v: '67', d: 'Egypt (EG)' },
+          { id: 2, v: '2', d: 'Saudi Arabia (SA)' },
+          { id: 3, v: '31', d: 'UAE (AE)' },
+          { id: 4, v: '44', d: 'United Kingdom (GB)' },
+          { id: 5, v: '49', d: 'Germany (DE)' },
+          { id: 6, v: '33', d: 'France (FR)' },
+          { id: 7, v: '1', d: 'United States (US)' },
+        ],
+      };
+
+      // State
+      let curAttrType = ''; // current attribute type in modal
+      let availChecked = new Set(); // IDs checked in available list
+      let selChecked = new Set(); // IDs checked in selected list
+      let selectedIds = new Set(); // IDs moved to selected panel
+
+      // ── Open / close modal ────────────────────────────────────────────────
+      function onAttrChange() {
+        const type = document.getElementById('attrSelect').value;
+        if (type && type !== curAttrType) {
+          curAttrType = type;
+          selectedIds.clear();
+          availChecked.clear();
+          selChecked.clear();
+          renderCondTags();
+        }
+      }
+
+      function openAttrModal() {
+        const type = document.getElementById('attrSelect').value;
+        if (!type) {
+          toast('Please select an attribute first', 'err');
+          return;
+        }
+        curAttrType = type;
+        availChecked.clear();
+        selChecked.clear();
+        document.getElementById('availSearch').value = '';
+        document.getElementById('selSearch').value = '';
+        document.getElementById('selRequired').classList.remove('show');
+        renderAvail();
+        renderSel();
+        document.getElementById('attrOverlay').classList.add('open');
+      }
+
+      function closeAttrModal() {
+        document.getElementById('attrOverlay').classList.remove('open');
+      }
+
+      document.getElementById('attrOverlay').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('attrOverlay'))
+          closeAttrModal();
+      });
+
+      // ── Render Available list ─────────────────────────────────────────────
+      function renderAvail(q = '') {
+        const items = (DICT[curAttrType] || []).filter((r) => {
+          const inSel = selectedIds.has(r.id);
+          const matchQ =
+            !q ||
+            r.v.toLowerCase().includes(q) ||
+            r.d.toLowerCase().includes(q) ||
+            String(r.id).includes(q);
+          return !inSel && matchQ;
+        });
+
+        const list = document.getElementById('availList');
+
+        if (!items.length) {
+          list.innerHTML = `<div style="padding:1.5rem;text-align:center;font-size:12.5px;color:#94A3B8;">No available items</div>`;
+          return;
+        }
+
+        list.innerHTML = items
+          .map((r) => {
+            const chk = availChecked.has(r.id);
+            return `
+    <div class="avail-item ${chk ? 'checked' : ''}" onclick="toggleAvailCheck(${r.id},this)">
+      <input type="checkbox" ${chk ? 'checked' : ''} onclick="event.stopPropagation();toggleAvailCheck(${r.id},this.closest('.avail-item'))">
+      <span class="code-id-badge">
+        <span class="code-part">${r.v}</span>
+        <span class="arrow-part">→</span>
+        <span class="id-part">${r.id}</span>
+      </span>
+      <span class="avail-item-desc">${r.d}</span>
+    </div>`;
+          })
+          .join('');
+      }
+
+      function filterAvail() {
+        renderAvail(document.getElementById('availSearch').value.toLowerCase());
+      }
+
+      function toggleAvailCheck(id, el) {
+        if (availChecked.has(id)) {
+          availChecked.delete(id);
+          el.classList.remove('checked');
+          el.querySelector('input').checked = false;
+        } else {
+          availChecked.add(id);
+          el.classList.add('checked');
+          el.querySelector('input').checked = true;
+        }
+      }
+
+      // ── Render Selected list ──────────────────────────────────────────────
+      function renderSel(q = '') {
+        const items = (DICT[curAttrType] || []).filter((r) => {
+          const inSel = selectedIds.has(r.id);
+          const matchQ =
+            !q ||
+            r.v.toLowerCase().includes(q) ||
+            r.d.toLowerCase().includes(q) ||
+            String(r.id).includes(q);
+          return inSel && matchQ;
+        });
+
+        const list = document.getElementById('selList');
+
+        if (!items.length) {
+          list.innerHTML = '';
+          return;
+        }
+
+        list.innerHTML = items
+          .map((r) => {
+            const chk = selChecked.has(r.id);
+            return `
+    <div class="sel-item">
+      <input type="checkbox" ${chk ? 'checked' : ''} onchange="toggleSelCheck(${r.id},this)">
+      <span class="sel-code-id">
+        <span class="s-code">${r.v}</span>
+        <span class="s-arrow">→</span>
+        <span class="s-id">${r.id}</span>
+      </span>
+      <span style="font-size:12px;color:#64748B;flex:1;">${r.d}</span>
+    </div>`;
+          })
+          .join('');
+      }
+
+      function filterSel() {
+        renderSel(document.getElementById('selSearch').value.toLowerCase());
+      }
+
+      function toggleSelCheck(id, el) {
+        if (el.checked) selChecked.add(id);
+        else selChecked.delete(id);
+      }
+
+      function toggleSelAll() {
+        const chk = document.getElementById('selAllChk').checked;
+        if (chk) {
+          (DICT[curAttrType] || [])
+            .filter((r) => selectedIds.has(r.id))
+            .forEach((r) => selChecked.add(r.id));
+        } else {
+          selChecked.clear();
+        }
+        renderSel(document.getElementById('selSearch').value.toLowerCase());
+      }
+
+      // ── Add / Remove ──────────────────────────────────────────────────────
+      function addSelected() {
+        if (!availChecked.size) {
+          toast('Check at least one item to add', 'err');
+          return;
+        }
+        availChecked.forEach((id) => selectedIds.add(id));
+        availChecked.clear();
+        document.getElementById('selRequired').classList.remove('show');
+        renderAvail(document.getElementById('availSearch').value.toLowerCase());
+        renderSel(document.getElementById('selSearch').value.toLowerCase());
+      }
+
+      function removeSelected() {
+        if (!selChecked.size) {
+          toast('Check at least one item to remove', 'err');
+          return;
+        }
+        selChecked.forEach((id) => selectedIds.delete(id));
+        selChecked.clear();
+        document.getElementById('selAllChk').checked = false;
+        renderAvail(document.getElementById('availSearch').value.toLowerCase());
+        renderSel(document.getElementById('selSearch').value.toLowerCase());
+      }
+
+      // ── Save ──────────────────────────────────────────────────────────────
+      function saveAttrSelection() {
+        if (!selectedIds.size) {
+          document.getElementById('selRequired').classList.add('show');
+          return;
+        }
+        renderCondTags();
+        closeAttrModal();
+        toast(`${selectedIds.size} value(s) applied to condition`, 'ok');
+      }
+
+      // ── Render condition tags in the main form ────────────────────────────
+      function renderCondTags() {
+        const tags = document.getElementById('condTags');
+        const ph = document.getElementById('condPlaceholder');
+        const items = (DICT[curAttrType] || []).filter((r) =>
+          selectedIds.has(r.id),
+        );
+
+        if (!items.length) {
+          tags.innerHTML =
+            '<span class="cond-placeholder" id="condPlaceholder">Values</span>';
+          return;
+        }
+
+        ph && (ph.style.display = 'none');
+
+        // Show each selected value as  "2F → 1"  tag
+        tags.innerHTML =
+          items
+            .map(
+              (r) => `
+    <span class="cond-tag">
+      <span>${r.v}</span>
+      <span class="tag-arrow">→</span>
+      <span class="tag-id">${r.id}</span>
+    </span>`,
+            )
+            .join('') +
+          `<span style="font-size:11px;color:#94A3B8;margin-left:4px;cursor:pointer;" onclick="openAttrModal()" title="Edit values">✏️</span>`;
+      }
+
+      // ── Add condition row ─────────────────────────────────────────────────
+      function addConditionRow() {
+        const row = document.createElement('div');
+        row.style.cssText =
+          'display:flex;align-items:center;gap:.75rem;margin-top:.75rem;';
+        row.innerHTML = `
+    <div class="sel-wrap" style="flex:2;">
+      <select>
+        <option value="">Select Attribute</option>
+        <option value="AIRLINE_CODE">Airline_Code</option>
+        <option value="SUPPLIER">Supplier</option>
+        <option value="COUNTRY">Country</option>
+      </select>
+    </div>
+    <div class="sel-wrap" style="flex:1.2;">
+      <select><option>Select...</option><option>IN</option><option>==</option><option>!=</option></select>
+    </div>
+    <input class="cond-value" placeholder="Values" style="flex:2.5;">
+    <button class="icon-btn" onclick="this.parentElement.remove()" title="Remove" style="color:#DC2626;">✕</button>
+    <div style="width:36px;flex-shrink:0;"></div>`;
+        document.getElementById('extraRows').appendChild(row);
+      }
+
+      // ── Toast ─────────────────────────────────────────────────────────────
+      function toast(msg, type = 'ok') {
+        const w = document.getElementById('toasts');
+        const el = document.createElement('div');
+        el.className = `toast toast-${type}`;
+        el.innerHTML = (type === 'ok' ? '✓ ' : '✕ ') + msg;
+        w.appendChild(el);
+        setTimeout(() => {
+          el.style.transition = 'opacity .2s,transform .2s';
+          el.style.opacity = '0';
+          el.style.transform = 'translateX(12px)';
+          setTimeout(() => el.remove(), 200);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+{
+  "supplier": "AirArabia",
+  "flightSegments": {
+    "SEG1": {
+      "origin": "DXB",
+      "destination": "LHR",
+      "departureDateTime": "2026-08-14T09:15:00",
+      "arrivalDateTime": "2026-08-14T13:40:00",
+      "departureTerminal": "1",
+      "arrivalTerminal": "5",
+      "flightTime": 445,
+      "operatingCarrierCode": "G9",
+      "operatingFlightNumber": "780",
+      "marketingCarrierCode": "G9",
+      "marketingFlightNumber": "780",
+      "equipment": "789"
+    }
+  },
+  "passengersDetails": {
+    "PAX1": {
+      "passengerTypeCode": "ADT",
+      "name": { "first": "Ahmed", "middle": null, "last": "Al Sayed" },
+      "birthDate": "1988-03-12T00:00:00",
+      "documentNumber": "A1234567"
+    },
+    "PAX2": {
+      "passengerTypeCode": "CHD",
+      "name": { "first": "Layla", "middle": null, "last": "Al Sayed" },
+      "birthDate": "2017-05-02T00:00:00",
+      "documentNumber": "A7654321"
+    }
+  },
+  "seatMapDetails": {
+    "SEG1": {
+      "cabinLayoutsByDeck": {
+        "Main": { "zones": [
+          { "zoneId": "Z1", "columns": ["A", "C", null, "D", "G", null, "H", "K"] },
+          { "zoneId": "Z2", "columns": ["A", "B", "C", null, "D", "E", "F"] }
+        ] }
+      },
+      "rows": [
+        {
+          "rowNumber": 1,
+          "deck": "Main",
+          "zoneId": "Z1",
+          "cells": [
+            { "cellCategory": "Seat", "column": "A", "cellDetails": {
+              "cellID": "SEG1-1A", "cellCode": "1A", "cellAvailability": "AvailablePaid",
+              "name": "1A", "description": "Business window seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": {
+                "PAX1": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } }
+              },
+              "cellCharacteristics": [
+                { "padisCode": "W", "description": "Window seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Seat", "column": "C", "cellDetails": {
+              "cellID": "SEG1-1C", "cellCode": "1C", "cellAvailability": "AvailablePaid",
+              "name": "1C", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Aisle", "column": null, "cellDetails": null },
+            { "cellCategory": "Seat", "column": "D", "cellDetails": {
+              "cellID": "SEG1-1D", "cellCode": "1D", "cellAvailability": "AvailablePaid",
+              "name": "1D", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Seat", "column": "G", "cellDetails": {
+              "cellID": "SEG1-1G", "cellCode": "1G", "cellAvailability": "AvailablePaid",
+              "name": "1G", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Aisle", "column": null, "cellDetails": null },
+            { "cellCategory": "Seat", "column": "H", "cellDetails": {
+              "cellID": "SEG1-1H", "cellCode": "1H", "cellAvailability": "AvailablePaid",
+              "name": "1H", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Seat", "column": "K", "cellDetails": {
+              "cellID": "SEG1-1K", "cellCode": "1K", "cellAvailability": "AvailablePaid",
+              "name": "1K", "description": "Business window seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "W", "description": "Window seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }}
+          ]
+        },
+        {
+          "rowNumber": 2,
+          "deck": "Main",
+          "zoneId": "Z1",
+          "cells": [
+            { "cellCategory": "Seat", "column": "A", "cellDetails": {
+              "cellID": "SEG1-2A", "cellCode": "2A", "cellAvailability": "Occupied",
+              "name": "2A", "description": "Business window seat, Lie flat seat",
+              "seatPriceDetails": null, "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "W", "description": "Window seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Seat", "column": "C", "cellDetails": {
+              "cellID": "SEG1-2C", "cellCode": "2C", "cellAvailability": "AvailablePaid",
+              "name": "2C", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Aisle", "column": null, "cellDetails": null },
+            { "cellCategory": "Seat", "column": "D", "cellDetails": {
+              "cellID": "SEG1-2D", "cellCode": "2D", "cellAvailability": "AvailablePaid",
+              "name": "2D", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Seat", "column": "G", "cellDetails": {
+              "cellID": "SEG1-2G", "cellCode": "2G", "cellAvailability": "AvailablePaid",
+              "name": "2G", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Aisle", "column": null, "cellDetails": null },
+            { "cellCategory": "Seat", "column": "H", "cellDetails": {
+              "cellID": "SEG1-2H", "cellCode": "2H", "cellAvailability": "AvailablePaid",
+              "name": "2H", "description": "Business aisle seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "A", "description": "Aisle seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }},
+            { "cellCategory": "Seat", "column": "K", "cellDetails": {
+              "cellID": "SEG1-2K", "cellCode": "2K", "cellAvailability": "AvailablePaid",
+              "name": "2K", "description": "Business window seat, Lie flat seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 350.00, "currency": "AED" }, "basePrice": { "amount": 300.00, "currency": "AED" }, "taxesPrice": { "amount": 50.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [
+                { "padisCode": "W", "description": "Window seat" },
+                { "padisCode": "LF", "description": "Lie flat seat" }
+              ]
+            }}
+          ]
+        },
+        {
+          "rowNumber": 20,
+          "deck": "Main",
+          "zoneId": "Z2",
+          "cells": [
+            { "cellCategory": "Seat", "column": "A", "cellDetails": {
+              "cellID": "SEG1-20A", "cellCode": "20A", "cellAvailability": "AvailablePaid",
+              "name": "20A", "description": "Window seat",
+              "seatPriceDetails": { "totalPrice": { "amount": 20.00, "currency": "AED" }, "basePrice": { "amount": 16.00, "currency": "AED" }, "taxesPrice": { "amount": 4.00, "currency": "AED" } },
+              "seatPriceDetailsByPassenger": {
+                "PAX2": { "totalPrice": { "amount": 20.00, "currency": "AED" }, "basePrice": { "amount": 16.00, "currency": "AED" }, "taxesPrice": { "amount": 4.00, "currency": "AED" } }
+              },
+              "cellCharacteristics": [ { "padisCode": "W", "description": "Window seat" } ]
+            }},
+            { "cellCategory": "Seat", "column": "B", "cellDetails": {
+              "cellID": "SEG1-20B", "cellCode": "20B", "cellAvailability": "AvailableFree",
+              "name": "20B", "description": "Middle seat",
+              "seatPriceDetails": null, "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [ { "padisCode": "MS", "description": "Middle seat" } ]
+            }},
+            { "cellCategory": "Seat", "column": "C", "cellDetails": {
+              "cellID": "SEG1-20C", "cellCode": "20C", "cellAvailability": "AvailableFree",
+              "name": "20C", "description": "Aisle seat",
+              "seatPriceDetails": null, "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [ { "padisCode": "A", "description": "Aisle seat" } ]
+            }},
+            { "cellCategory": "Aisle", "column": null, "cellDetails": null },
+            { "cellCategory": "Seat", "column": "D", "cellDetails": {
+              "cellID": "SEG1-20D", "cellCode": "20D", "cellAvailability": "AvailableFree",
+              "name": "20D", "description": "Aisle seat",
+              "seatPriceDetails": null, "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [ { "padisCode": "A", "description": "Aisle seat" } ]
+            }},
+            { "cellCategory": "Seat", "column": "E", "cellDetails": {
+              "cellID": "SEG1-20E", "cellCode": "20E", "cellAvailability": "AvailableFree",
+              "name": "20E", "description": "Middle seat",
+              "seatPriceDetails": null, "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [ { "padisCode": "MS", "description": "Middle seat" } ]
+            }},
+            { "cellCategory": "Seat", "column": "F", "cellDetails": {
+              "cellID": "SEG1-20F", "cellCode": "20F", "cellAvailability": "AvailableFree",
+              "name": "20F", "description": "Window seat",
+              "seatPriceDetails": null, "seatPriceDetailsByPassenger": null,
+              "cellCharacteristics": [ { "padisCode": "W", "description": "Window seat" } ]
+            }}
+          ]
+        }
+      ]
+    }
+  },
+  "passengersSeatMapAvailability": {
+    "PAX1": {
+      "SEG1": ["1A", "1C", "1D", "1G", "1H", "1K", "2C", "2D", "2G", "2H", "2K", "20A", "20B", "20C", "20D", "20E", "20F"]
+    },
+    "PAX2": {
+      "SEG1": ["20A", "20B", "20C", "20D", "20E", "20F"]
+    }
+  }
+}

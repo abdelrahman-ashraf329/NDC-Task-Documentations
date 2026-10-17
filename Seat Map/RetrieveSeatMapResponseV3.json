@@ -1,0 +1,95 @@
+{
+  "currency": "AED",
+  "passengers": [
+    {
+      "passengerId": "PAX1",
+      "type": 0,
+      "name": {
+        "firstName": "Ahmed",
+        "lastName": "Al Sayed"
+      }
+    },
+    {
+      "passengerId": "PAX2",
+      "type": 1,
+      "name": {
+        "firstName": "Sergio",
+        "lastName": "Ramos"
+      }
+    }
+  ],
+  "segments": [
+    {
+      "segmentId": "SEG1",
+      "origin": "DXB",
+      "destination": "LHR",
+      "departureDateTime": "2026-08-14T09:15:00",
+      "arrivalDateTime": "2026-08-14T13:40:00",
+      "operatingCarrierCode": "G9",
+      "operatingFlightNumber": "780",
+      "marketingCarrierCode": "G9",
+      "marketingFlightNumber": "780",
+      "equipment": "789",
+      "cabinLayout": {
+        "decks": [
+          {
+            "deck": "MAIN",
+            "zones": [
+              {
+                "zoneId": "Z1",
+                "rowCount": 2,
+                "columnCount": 3,
+                "columns": [
+                  {
+                    "columnId": 1,
+                    "label": "A",
+                    "zoneType": "SEAT"
+                  },
+                  {
+                    "columnId": 2,
+                    "label": "B",
+                    "zoneType": "SEAT"
+                  },
+                  {
+                    "columnId": 3,
+                    "label": "OTHER",
+                    "zoneType": "OTHER"
+                  }
+                ],
+                "rows": [
+                  {
+                    "rowNumber": 1,
+                    "cells": [
+                      {
+                        "cellCategory": "SEAT",
+                        "cellId": "SEG1-1A",
+                        "cellCode": "1A",
+                        "column": "A",
+                        "cellAvailability": "AVAILABLE_PAID",
+                        "cellCharacteristics": ["WINDOW", "LIE_FLAT"],
+                        "passengerSeatOffers": [
+                          {
+                            "passengerId": "PAX1",
+                            "eligible": true,
+                            "price": 25.0,
+                            "signature": "k7Qp9xVv2m..."
+                          },
+                          {
+                            "passengerId": "PAX2",
+                            "eligible": false,
+                            "price": 0,
+                            "signature": null
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
